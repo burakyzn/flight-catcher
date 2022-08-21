@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 import { Text } from "react-native";
 
-export default function Home() {
+export default function Offer() {
   return (
     <View>
-      <Text>Home Screen</Text>
+      <Text>Offer Screen</Text>
     </View>
   )
 }

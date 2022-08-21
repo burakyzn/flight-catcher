@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 import { Text } from "react-native";
 
-export default function Home() {
+export default function Profile() {
   return (
     <View>
-      <Text>Home Screen</Text>
+      <Text>Profile Screen</Text>
     </View>
   )
 }
