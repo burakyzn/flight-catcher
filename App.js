@@ -4,7 +4,7 @@ import * as Font from 'expo-font';
 import {useState, useEffect, useCallback} from 'react';
 import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Inter_300Light, Inter_500Medium, Inter_700Bold, Inter_600SemiBold } from '@expo-google-fonts/inter';
+import { Inter_300Light, Inter_400Regular, Inter_500Medium, Inter_700Bold, Inter_600SemiBold } from '@expo-google-fonts/inter';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -15,7 +15,7 @@ export default function App() {
     (async () => {
       try {
         await SplashScreen.preventAutoHideAsync();
-        await Font.loadAsync({Inter_300Light, Inter_500Medium, Inter_700Bold, Inter_600SemiBold });
+        await Font.loadAsync({Inter_300Light, Inter_400Regular, Inter_500Medium, Inter_700Bold, Inter_600SemiBold });
       }
       catch (error){
         console.warn(error)
