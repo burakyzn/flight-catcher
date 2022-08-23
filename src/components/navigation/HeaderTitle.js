@@ -5,6 +5,7 @@ export default function HeaderTitle({title}) {
 }
 
 const Text = styled.Text`
+  background-color: #F9FBFA;
   font-family: Inter_500Medium;
   font-size: 20px;
 `;

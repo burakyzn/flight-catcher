@@ -4,7 +4,7 @@ export default function OfferCard(props) {
   const { logo, rate, title, description } = props;
 
   return (
-    <View>
+    <Container>
       <Partner>
         {logo}
         <Rate>{rate}</Rate>
@@ -13,11 +13,11 @@ export default function OfferCard(props) {
         <Title>{title}</Title>
         <Description>{description}</Description>
       </Content>
-    </View>
+    </Container>
   )
 }
 
-const View = styled.View`
+const Container = styled.View`
   flex: 1;
   box-shadow: 0px 5px 10px rgba(89, 27, 27, 0.05);
   border-radius: 8px;
