@@ -1,17 +1,32 @@
 import styled from 'styled-components/native';
-import { Text } from "react-native";
+import offers from '../mocks/offers';
+import OfferCard from '../components/offer/OfferCard';
+import { View, FlatList } from 'react-native';
 
-export default function Offer() {
+export default function Offer(){
+  const renderItem = ({ item }) => (
+    <ClickableCard>
+      <OfferCard 
+        rate={item.rate}
+        title={item.title}
+        description={item.description}
+        logo={item.logo}
+      />
+    </ClickableCard>
+  );
+
   return (
     <View>
-      <Text>Offer Screen</Text>
+      <FlatList
+        data={offers}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
     </View>
-  )
+  );
 }
 
-const View = styled.View`
-  flex: 1;
-  background-color: #fff;
-  align-items : center;
-  justify-content: center;
+const ClickableCard = styled.TouchableOpacity`
+  padding: 16px;
+  height: 200px;
 `;
