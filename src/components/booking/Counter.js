@@ -64,5 +64,5 @@ const Button = styled.TouchableOpacity`
   align-items: center;
   margin-left: 5px;
   margin-right: 5px;
-  border-radius: 100%;
+  border-radius: 50px;
 `;

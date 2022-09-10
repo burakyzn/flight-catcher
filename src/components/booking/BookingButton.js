@@ -1,14 +1,14 @@
 import styled from 'styled-components/native';
 
 export default function BookingButton(props) {
-  const {label, value, image, onPress, style} = props;
+  const {label, value, image, onPress, style, disabled} = props;
 
   return (
-    <Container onPress={onPress} style={style}>
-      <Label>{label}</Label>
+    <Container onPress={onPress} style={style} disabled={disabled}>
+      <Label disabled={disabled}>{label}</Label>
       <InputArea>
         {image}
-        <Input numberOfLines={1} image={image}>{value ? value : `${label} Date`}</Input>
+        <Input disabled={disabled} numberOfLines={1} image={image}>{value ? value : `${label} Date`}</Input>
       </InputArea>
     </Container>
   )
@@ -30,6 +30,7 @@ const Label = styled.Text`
   padding-left: 5px;
   padding-right: 5px;
   font-family: Inter_400Regular;
+  color: ${props => props.disabled ? 'gray' : 'black'};
 `;
 
 const InputArea = styled.View`
@@ -50,4 +51,5 @@ const Input = styled.Text`
   margin-left: ${props => props.image ? '12px' : '0'};
   font-family: Inter_600SemiBold;
   width: 100%;
+  color: ${props => props.disabled ? 'gray' : 'black'};
 `;

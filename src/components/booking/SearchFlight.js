@@ -7,10 +7,11 @@ import CabinClass from './bottomSheets/CabinClass';
 import Traveler from './bottomSheets/Traveler';
 import { useCallback, useRef, useState } from 'react'
 
-export default function SearchFlight() {
+export default function SearchFlight(props) {
+  const { isDisabledReturnFlight } = props;
+
   const bottomCabinClassModalRef = useRef(null);
   const bottomTravelerModalRef = useRef(null);
-  
   const [cabinClass, setCabinClass] = useState("Economy");
   const [traveler, setTraveler] = useState("1 Adult, 0 Child");
 
@@ -38,6 +39,7 @@ export default function SearchFlight() {
         label="To"
         value="Berlin"
         image={ <AirplaneLanding /> }
+        disabled={ isDisabledReturnFlight }
       />
       <DualButtonSection>
         <BookingButton 
