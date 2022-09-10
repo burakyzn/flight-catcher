@@ -1,17 +1,21 @@
 import styled from 'styled-components/native';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Counter(props) {
-  const { value, minValue, maxValue } = props;
+  const { value, minValue, maxValue, onChangeValue } = props;
 
   const [count, setCount] = useState(value);
-
+  
+  useEffect(() => {
+    onChangeValue(count);
+  }, [count])
+  
   const handleIncreaseCount = () => {
-    setCount(count => count+1);
+    setCount(c => c + 1);
   }
 
   const handleDecreaseCount = () => {
-    setCount(count => count-1);
+    setCount(c => c - 1);
   }
 
   const isMaxDisabled = () => maxValue === count;
@@ -20,14 +24,14 @@ export default function Counter(props) {
 
   return (
     <Container>
-      <Button onPress={handleDecreaseCount} disabled={isMinDisabled}>
-        <Text disabled={isMinDisabled}>-</Text>
+      <Button onPress={handleDecreaseCount} disabled={isMinDisabled()}>
+        <Text disabled={isMinDisabled()}>-</Text>
       </Button>
       <Number>
         <Text>{count}</Text>
       </Number>
-      <Button onPress={handleIncreaseCount} disabled={isMaxDisabled}>
-        <Text disabled={isMaxDisabled}>+</Text>
+      <Button onPress={handleIncreaseCount} disabled={isMaxDisabled()}>
+        <Text disabled={isMaxDisabled()}>+</Text>
       </Button>
     </Container>
   )
