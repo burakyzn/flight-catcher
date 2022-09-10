@@ -1,20 +1,20 @@
 import styled from 'styled-components/native';
 
-export default function BookingInput(props) {
-  const {label, value, image} = props;
+export default function BookingButton(props) {
+  const {label, value, image, onPress} = props;
 
   return (
-    <Container>
+    <Container onPress={onPress}>
       <Label>{label}</Label>
       <InputArea>
         {image}
-        <Input>{value}</Input>
+        <Input numberOfLines={1} image={image}>{value ? value : `${label} Date`}</Input>
       </InputArea>
     </Container>
   )
 }
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
   flex: 1;
   align-items: flex-start;
   margin-top: 15px;
@@ -23,7 +23,6 @@ const Container = styled.View`
 const Label = styled.Text`
   z-index: 1;
   display: flex;
-  text-align: start;
   height: 24px;
   flex-grow: 0;
   margin: -15px 10px;
@@ -48,6 +47,7 @@ const Input = styled.Text`
   line-height: 24px;
   color: #191919;
   flex-grow: 0;
-  margin-left: 12px;
+  margin-left: ${props => props.image ? '12px' : '0'};
   font-family: Inter_600SemiBold;
+  width: 100%;
 `;

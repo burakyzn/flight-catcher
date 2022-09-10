@@ -29,7 +29,7 @@ const Container = styled.View`
 `;
 
 const Header = styled.View`
-  height: 20%
+  height: 20%;
   display: flex;
   flex-direction: row;
   align-items : center;
