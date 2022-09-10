@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import FlightTypeTabs from '../components/booking/FlightTypeTabs';
 import HotOffers from '../components/offer/HotOffers';
+import SearchFlight from '../components/booking/SearchFlight'
 
 export default function Home() {
   return (
@@ -10,7 +11,7 @@ export default function Home() {
           <FlightTypeTabs />
         </FlightTypeSection>
         <SearchSection>
-          <Book>Book Flight</Book>
+          <SearchFlight />
         </SearchSection>
       </BookingSection>
       <HotOfferSection>
@@ -28,12 +29,6 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-const Book = styled.Text`
-  flex: 1;
-  width: 100%;
-  text-align: center;
-`;
-
 const HotOfferSection = styled.View`
   flex: 2;
   width: 100%;
@@ -49,15 +44,12 @@ const BookingSection = styled.View`
 const FlightTypeSection = styled.View`
   flex:1;
   width: 100%;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding: 0 32px 0 32px;
   margin-top: 16px;
 `;
 
 const SearchSection = styled.View`
   flex: 12;
   width: 100%;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-top: 24px;
+  padding: 16px;
 `;
