@@ -1,4 +1,3 @@
-import Home from "../screens/Home";
 import Booking from '../screens/Booking';
 import Offer from '../screens/Offer';
 import Profile from '../screens/Profile';
@@ -7,7 +6,8 @@ import TabBarIcon from "../components/navigation/TabBarIcon";
 import HeaderTitle from "../components/navigation/HeaderTitle";
 import BackButton from "../components/navigation/BackButton"; 
 import supportedOS from '../contants/supportedOS';
-import { PAGES, PAGES_TITLE, PAGES_ICON} from '../contants/pages';
+import HomeStackNavigator from './HomeStackNavigator';
+import { PAGES, PAGES_TITLE, PAGES_ICON, STACKS } from '../contants/pages';
 import { StyleSheet, Platform } from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -21,13 +21,10 @@ export default function TabNavigator() {
       }
     }>
       <Tab.Screen 
-        name={PAGES.home}
-        component={Home} 
+        name={STACKS.home}
+        component={HomeStackNavigator} 
         options={() => ({
-          headerShadowVisible: false,
-          headerStyle: styles.header,
-          headerTitleAlign : 'center',
-          headerTitle: () => <HeaderTitle title={PAGES_TITLE.home}/>,
+          headerShown: false,
           tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name={PAGES_ICON.home} />,
           tabBarLabel: ({focused}) => <TabBarLabel focused={focused} text={PAGES.home} />
         })}/>
