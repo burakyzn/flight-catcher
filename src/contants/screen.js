@@ -1,4 +1,4 @@
-export const PAGES = Object.freeze({
+export const SCREEN = Object.freeze({
   home : "Home",
   booking: "Booking",
   offer: "Offer",
@@ -10,7 +10,7 @@ export const STACKS = Object.freeze({
   home : "HomeStack",
 })
 
-export const PAGES_TITLE = Object.freeze({
+export const SCREEN_TITLE = Object.freeze({
   home : "Book Flight",
   booking: "My Bookings",
   offer: "My Offers",
@@ -18,7 +18,7 @@ export const PAGES_TITLE = Object.freeze({
   searchFlight: "Search Flight"
 })
 
-export const PAGES_ICON = Object.freeze({
+export const SCREEN_ICON = Object.freeze({
   home : "home",
   booking: "list-alt",
   offer: "campaign",

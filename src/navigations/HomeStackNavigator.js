@@ -3,7 +3,7 @@ import SearchResult from "../screens/SearchResult";
 import BackButton from "../components/navigation/BackButton"; 
 import HeaderTitle from "../components/navigation/HeaderTitle";
 import supportedOS from '../contants/supportedOS';
-import { PAGES, PAGES_TITLE } from '../contants/pages';
+import { SCREEN, SCREEN_TITLE } from '../contants/screen';
 import { StyleSheet, Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -17,17 +17,17 @@ export default function HomeStackNavigator() {
       }
     }>
       <HomeStack.Screen
-        name={PAGES.home}
+        name={SCREEN.home}
         component={Home}
         options={() => ({
           headerShadowVisible: false,
           headerStyle: styles.header,
           headerTitleAlign : 'center',
-          headerTitle: () => <HeaderTitle title={PAGES_TITLE.home}/>,
+          headerTitle: () => <HeaderTitle title={SCREEN_TITLE.home}/>,
         })}
       />
       <HomeStack.Screen
-        name={PAGES.searchResult}
+        name={SCREEN.searchResult}
         component={SearchResult}
         options={() => ({
           headerShadowVisible: false,
@@ -35,7 +35,7 @@ export default function HomeStackNavigator() {
           headerTitleAlign : 'center',
           headerBackVisible: false,
           headerLeft: () => <BackButton />,
-          headerTitle: () => <HeaderTitle title={PAGES_TITLE.searchFlight}/>,
+          headerTitle: () => <HeaderTitle title={SCREEN_TITLE.searchFlight}/>,
         })}
       />
     </HomeStack.Navigator>

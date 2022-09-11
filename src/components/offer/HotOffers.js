@@ -2,13 +2,13 @@ import styled from 'styled-components/native';
 import OfferCarousel from './OfferCarousel';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { PAGES } from '../../contants/pages';
+import { SCREEN } from '../../contants/screen';
 
 export default function HotOffers() {
   const navigation = useNavigation();
 
   const handleSeeAllButton = () =>{
-    navigation.navigate(PAGES.offer);
+    navigation.navigate(SCREEN.offer);
   }
 
   return (

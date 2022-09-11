@@ -7,7 +7,7 @@ import CabinClass from './bottomSheets/CabinClass';
 import Traveler from './bottomSheets/Traveler';
 import Button from '../Button';
 import { useCallback, useRef, useState } from 'react';
-import { PAGES } from '../../contants/pages';
+import { SCREEN } from '../../contants/screen';
 import { useNavigation } from '@react-navigation/native';
 
 export default function SearchFlight(props) {
@@ -33,7 +33,7 @@ export default function SearchFlight(props) {
   }
 
   const handleSearch = () => {
-    navigation.navigate(PAGES.searchResult);
+    navigation.navigate(SCREEN.searchResult);
   };
 
   return (  

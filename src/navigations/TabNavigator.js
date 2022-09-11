@@ -7,7 +7,7 @@ import HeaderTitle from "../components/navigation/HeaderTitle";
 import BackButton from "../components/navigation/BackButton"; 
 import supportedOS from '../contants/supportedOS';
 import HomeStackNavigator from './HomeStackNavigator';
-import { PAGES, PAGES_TITLE, PAGES_ICON, STACKS } from '../contants/pages';
+import { SCREEN, SCREEN_TITLE, SCREEN_ICON, STACKS } from '../contants/screen';
 import { StyleSheet, Platform } from 'react-native';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -25,44 +25,44 @@ export default function TabNavigator() {
         component={HomeStackNavigator} 
         options={() => ({
           headerShown: false,
-          tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name={PAGES_ICON.home} />,
-          tabBarLabel: ({focused}) => <TabBarLabel focused={focused} text={PAGES.home} />
+          tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name={SCREEN_ICON.home} />,
+          tabBarLabel: ({focused}) => <TabBarLabel focused={focused} text={SCREEN.home} />
         })}/>
       <Tab.Screen 
-        name={PAGES.booking}
+        name={SCREEN.booking}
         component={Booking} 
         options={() => ({
           headerShadowVisible: false,
           headerStyle: styles.header,
           headerTitleAlign : 'center',
-          headerTitle: () => <HeaderTitle title={PAGES_TITLE.booking}/>,
+          headerTitle: () => <HeaderTitle title={SCREEN_TITLE.booking}/>,
           headerLeft: () => <BackButton />,
-          tabBarIcon:  ({focused}) => <TabBarIcon focused={focused} name={PAGES_ICON.booking} />,
-          tabBarLabel: ({focused}) => <TabBarLabel focused={focused} text={PAGES.booking}  />
+          tabBarIcon:  ({focused}) => <TabBarIcon focused={focused} name={SCREEN_ICON.booking} />,
+          tabBarLabel: ({focused}) => <TabBarLabel focused={focused} text={SCREEN.booking}  />
         })}/>
       <Tab.Screen 
-        name={PAGES.offer}
+        name={SCREEN.offer}
         component={Offer} 
         options={() => ({
           headerShadowVisible: false,
           headerStyle: styles.header,
           headerTitleAlign : 'center',
-          headerTitle: () => <HeaderTitle title={PAGES_TITLE.offer}/>,
+          headerTitle: () => <HeaderTitle title={SCREEN_TITLE.offer}/>,
           headerLeft: () => <BackButton />,
-          tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name={PAGES_ICON.offer} />,
-          tabBarLabel: ({focused}) => <TabBarLabel focused={focused} text={PAGES.offer}  />
+          tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name={SCREEN_ICON.offer} />,
+          tabBarLabel: ({focused}) => <TabBarLabel focused={focused} text={SCREEN.offer}  />
         })}/>
       <Tab.Screen 
-        name={PAGES.profile}
+        name={SCREEN.profile}
         component={Profile} 
         options={() => ({
           headerShadowVisible: false,
           headerStyle: styles.header,
           headerTitleAlign : 'center',
-          headerTitle: () => <HeaderTitle title={PAGES_TITLE.profile}/>,
+          headerTitle: () => <HeaderTitle title={SCREEN_TITLE.profile}/>,
           headerLeft: () => <BackButton />,
-          tabBarIcon : ({focused}) => <TabBarIcon focused={focused} name={PAGES_ICON.profile} />,
-          tabBarLabel: ({focused}) => <TabBarLabel focused={focused} text={PAGES.profile}  />
+          tabBarIcon : ({focused}) => <TabBarIcon focused={focused} name={SCREEN_ICON.profile} />,
+          tabBarLabel: ({focused}) => <TabBarLabel focused={focused} text={SCREEN.profile}  />
         })}/>
     </Tab.Navigator>
   );
