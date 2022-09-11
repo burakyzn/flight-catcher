@@ -5,11 +5,15 @@ import AirplaneLanding from '../svg/AirplaneLanding';
 import Calendar from '../svg/Calendar';
 import CabinClass from './bottomSheets/CabinClass';
 import Traveler from './bottomSheets/Traveler';
-import { useCallback, useRef, useState } from 'react'
+import Button from '../Button';
+import { useCallback, useRef, useState } from 'react';
+import { PAGES } from '../../contants/pages';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SearchFlight(props) {
   const { isDisabledReturnFlight } = props;
 
+  const navigation = useNavigation();
   const bottomCabinClassModalRef = useRef(null);
   const bottomTravelerModalRef = useRef(null);
   const [cabinClass, setCabinClass] = useState("Economy");
@@ -28,8 +32,12 @@ export default function SearchFlight(props) {
     bottomCabinClassModalRef.current?.close();
   }
 
+  const handleSearch = () => {
+    navigation.navigate(PAGES.searchResult);
+  };
+
   return (  
-    <Container>
+    <View>
       <BookingButton 
         label="From"
         value="Istanbul"
@@ -41,7 +49,7 @@ export default function SearchFlight(props) {
         image={ <AirplaneLanding /> }
         disabled={ isDisabledReturnFlight }
       />
-      <DualButtonSection>
+      <Row>
         <BookingButton 
           label="Departure"
           value="15/10/2022"
@@ -53,8 +61,8 @@ export default function SearchFlight(props) {
           value="15/11/2022"
           image={ <Calendar /> }
         />
-      </DualButtonSection>
-      <DualButtonSection>
+      </Row>
+      <Row>
         <BookingButton 
           label="Traveler"
           value={traveler}
@@ -66,19 +74,15 @@ export default function SearchFlight(props) {
           value={cabinClass}
           onPress={handleCabinClassModalPress}
         />
-      </DualButtonSection>
-      <SearchButtonSection>
-        <SearchButton>
-          <ButtonText>Search</ButtonText>
-        </SearchButton>
-      </SearchButtonSection> 
+      </Row>
+      <Button text={"Search"} onPress={handleSearch} />
       <CabinClass modalRef={bottomCabinClassModalRef} onChangeCabinClass={handleChangeCabinClass} />
       <Traveler modalRef={bottomTravelerModalRef} onChangeTraveler={setTraveler} />
-    </Container>
+    </View>
   )
 }
 
-const Container = styled.View`
+const View = styled.View`
   flex: 1;
   display: flex;
   border-radius: 16px;
@@ -87,31 +91,7 @@ const Container = styled.View`
   padding: 16px 16px 0px 16px;
 `;
 
-const SearchButtonSection = styled.View`
-  flex: 1.5;
-  padding: 0 16px 16px 16px;
-`;
-
-const SearchButton = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background: #EC441E;
-  border-radius: 10px;
-`;
-
-const ButtonText = styled.Text`
-  font-size: 18px;
-  line-height: 24px;
-  text-align: center;
-  color: #FFFFFF;
-  flex: none;
-  flex-grow: 0;
-  order: 0;
-  font-family: Inter_500Medium;
-`;
-
-const DualButtonSection = styled.View`
+const Row = styled.View`
   flex: 2;
   flex-direction: row;
 `;
