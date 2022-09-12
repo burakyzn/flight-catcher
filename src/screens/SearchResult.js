@@ -9,8 +9,11 @@ export default function SearchResult() {
       code={item.code}
       from={item.from} 
       to={item.to} 
+      fromAirport={item.fromAirport}
+      toAirport={item.toAirport}
       departureTime={item.departureTime} 
       arrivalTime={item.arrivalTime} 
+      date={item.date}
       cabinClass={item.cabinClass} 
       flightTime={item.flightTime} 
       price={item.price}

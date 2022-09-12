@@ -1,11 +1,39 @@
 import styled from 'styled-components/native';
 import Button from '../Button';
 import AirplaneFlight from '../svg/AirplaneFlight';
+import { useNavigation } from '@react-navigation/native';
+import { SCREEN } from '../../contants/screen';
 
-export default function FlightCard(props) {
-  const { code, from, to, departureTime, arrivalTime, cabinClass, flightTime, price } = props;
+export default function FlightCard(params) {
+  const { 
+    code, 
+    from, 
+    to, 
+    fromAirport,
+    toAirport,
+    departureTime, 
+    arrivalTime,
+    date, 
+    cabinClass, 
+    flightTime, 
+    price 
+  } = params;
 
-  const handleCheckButton = () => {};
+  const navigation = useNavigation();
+
+  const handleCheckButton = () => {
+    navigation.navigate(SCREEN.flightDetail, {
+      from : from,
+      to : to,
+      fromAirport: fromAirport,
+      toAirport : toAirport,
+      departureTime: departureTime,
+      arrivalTime: arrivalTime,
+      flightTime: flightTime,
+      date: date,
+      price: price
+    });
+  };
 
   return (  
     <View>

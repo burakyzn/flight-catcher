@@ -2,6 +2,7 @@ import Home from "../screens/Home";
 import SearchResult from "../screens/SearchResult";
 import BackButton from "../components/navigation/BackButton"; 
 import HeaderTitle from "../components/navigation/HeaderTitle";
+import FlightDetail from "../screens/FlightDetail";
 import supportedOS from '../contants/supportedOS';
 import { SCREEN, SCREEN_TITLE } from '../contants/screen';
 import { StyleSheet, Platform } from 'react-native';
@@ -36,6 +37,18 @@ export default function HomeStackNavigator() {
           headerBackVisible: false,
           headerLeft: () => <BackButton />,
           headerTitle: () => <HeaderTitle title={SCREEN_TITLE.searchFlight}/>,
+        })}
+      />
+      <HomeStack.Screen
+        name={SCREEN.flightDetail}
+        component={FlightDetail}
+        options={() => ({
+          headerShadowVisible: false,
+          headerStyle: styles.header,
+          headerTitleAlign : 'center',
+          headerBackVisible: false,
+          headerLeft: () => <BackButton />,
+          headerTitle: () => <HeaderTitle title={SCREEN_TITLE.flightDetail}/>,
         })}
       />
     </HomeStack.Navigator>
