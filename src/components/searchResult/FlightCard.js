@@ -25,7 +25,7 @@ export default function FlightCard(props) {
           </Column>
           <AirplaneFlight/>
           <Column>
-            <ArrivalTime>{arrivalTime}</ArrivalTime>
+            <Time textAlign="right">{arrivalTime}</Time>
             <Location>{to}</Location>
           </Column>
         </Row>
@@ -89,10 +89,7 @@ const Time = styled.Text`
   font-size: 16px;
   line-height: 24px;
   color: #191919;
-`;
-
-const ArrivalTime = styled(Time)`
-  text-align: right;
+  ${props => props.textAlign ? `text-align : ${props.textAlign}` : ''}
 `;
 
 const Location = styled.Text`
