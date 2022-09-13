@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import seats from '../../mocks/seats';
 import Button from '../Button';
 import Seat from '../seatSelection/Seat';
+import { SCREEN } from '../../contants/screen';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -43,6 +44,7 @@ export default function SeatArea() {
           <Column>
             {seats.A.map(seat => 
               <Seat 
+                key={seat.no}
                 no={seat.no}
                 color={() => handleSeatColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
                 backgroundColor={() => handleSeatBackgroundColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
@@ -53,6 +55,7 @@ export default function SeatArea() {
           <Column>
             {seats.B.map(seat => 
               <Seat 
+                key={seat.no}
                 no={seat.no}
                 color={() => handleSeatColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
                 backgroundColor={() => handleSeatBackgroundColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
@@ -65,6 +68,7 @@ export default function SeatArea() {
           <Column>
             {seats.C.map(seat => 
               <Seat 
+                key={seat.no}
                 no={seat.no}
                 color={() => handleSeatColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
                 backgroundColor={() => handleSeatBackgroundColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
@@ -75,6 +79,7 @@ export default function SeatArea() {
           <Column>
             {seats.D.map(seat => 
               <Seat 
+                key={seat.no}
                 no={seat.no}
                 color={() => handleSeatColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
                 backgroundColor={() => handleSeatBackgroundColor(selected === seat.no, seat.reserved, seat.extraLegroom)}

@@ -4,7 +4,7 @@ export default function Seat(props) {
   const { no, color, backgroundColor, onPress } = props;
 
   return (
-    <View key={no} onPress={onPress}>
+    <View onPress={onPress}>
       <Text 
         color={color}
         backgroundColor={backgroundColor}>
