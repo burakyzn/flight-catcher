@@ -1,8 +1,9 @@
 import styled from 'styled-components/native';
-import Button from '../components/Button';
 import seats from '../mocks/seats';
-import AirplaneSeat from '../components/svg/AirplaneSeat';
+import Button from '../components/Button';
 import Seat from '../components/seatSelection/Seat';
+import AirplaneSeat from '../components/svg/AirplaneSeat';
+import Information from '../components/seatSelection/Information';
 import { useState } from 'react';
 import { SCREEN } from '../contants/screen';
 import { useNavigation } from '@react-navigation/native';
@@ -38,23 +39,9 @@ export default function SeatSelection() {
     return 'rgba(59, 119, 220, 0.05)';
   }
 
-
   return (
     <View>
-      <Information>
-        <Wrapper>
-          <Circle color="#EC441E"/>
-          <Text>Selected</Text>
-        </Wrapper>
-        <Wrapper>
-          <Circle color="#7C7270"/>
-          <Text>Extra Legroom</Text>
-        </Wrapper>
-        <Wrapper>
-          <Circle color="#D9D9D9"/>
-          <Text>Reserved</Text>
-        </Wrapper>
-      </Information>
+      <Information />
       <SeatArea>
         <SeatRow>
           <Side>
@@ -117,32 +104,6 @@ const View = styled.View`
   align-items : center;
   background-color: #F9FBFA;
   justify-content: space-between;
-`;
-
-const Information = styled.View`
-  flex-direction: row;
-  margin: 20px 0 20px 0;
-`;
-
-const Wrapper = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
-
-const Circle = styled.View`
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background-color: ${props => props.color}
-`;
-
-const Text = styled.Text`
-  color: #555555;
-  font-size: 14px;
-  margin-left: 5px;
-  line-height: 22px;
-  margin-right: 10px;
-  font-family: Inter_400Regular;
 `;
 
 const SeatArea = styled.View`
