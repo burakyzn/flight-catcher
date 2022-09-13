@@ -1,16 +1,43 @@
 import styled from 'styled-components/native';
 import Button from '../components/Button';
 import seats from '../mocks/seats';
-import AirplaneSeat from '../components/svg/AirplaneSeat'
+import AirplaneSeat from '../components/svg/AirplaneSeat';
+import Seat from '../components/seatSelection/Seat';
 import { useState } from 'react';
+import { SCREEN } from '../contants/screen';
+import { useNavigation } from '@react-navigation/native';
 
 export default function SeatSelection() {
   const [selected, setSelected] = useState(null);
+  const navigation = useNavigation();
 
   const handleSelectSeat = (reserved, seatNo) => {
     if(reserved) return;
     setSelected(seatNo);
   }
+
+  const handleConfirm = () => {
+    navigation.navigate(SCREEN.payment);
+  }
+
+  const handleSeatColor = (selected, reserved, extraLegroom) => {
+    if(reserved)
+      return '#555555';
+    if(selected || extraLegroom)
+      return '#FFFFFF';
+    return '#555555';
+  }
+
+  const handleSeatBackgroundColor = (selected, reserved, extraLegroom) => {
+    if(reserved)
+      return '#D9D9D9';
+    else if(selected)
+      return '#EC441E';
+    else if(extraLegroom)
+      return '#7C7270';
+    return 'rgba(59, 119, 220, 0.05)';
+  }
+
 
   return (
     <View>
@@ -33,62 +60,51 @@ export default function SeatSelection() {
           <Side>
             <SeatColumn>
               {seats.A.map(seat => 
-                <ClickableSeat onPress={() => handleSelectSeat(seat.reserved, seat.no)}>
-                  <Seat 
-                    key={seat.no} 
-                    selected={selected===seat.no}
-                    reserved={seat.reserved}
-                    extraLegroom={seat.extraLegroom}>
-                      {seat.no}
-                  </Seat>
-                </ClickableSeat>
+                <Seat 
+                  no={seat.no}
+                  color={() => handleSeatColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
+                  backgroundColor={() => handleSeatBackgroundColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
+                  onPress={() => handleSelectSeat(seat.reserved, seat.no)}
+                />
               )}
             </SeatColumn>
             <SeatColumn>
               {seats.B.map(seat => 
-                <ClickableSeat onPress={() => handleSelectSeat(seat.reserved, seat.no)}>
-                  <Seat 
-                    key={seat.no} 
-                    selected={selected===seat.no}
-                    reserved={seat.reserved}
-                    extraLegroom={seat.extraLegroom}>
-                    {seat.no}
-                  </Seat>
-                </ClickableSeat>
+                <Seat 
+                  no={seat.no}
+                  color={() => handleSeatColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
+                  backgroundColor={() => handleSeatBackgroundColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
+                  onPress={() => handleSelectSeat(seat.reserved, seat.no)}
+                />
               )}
             </SeatColumn>
           </Side>
           <Side>
             <SeatColumn>
               {seats.C.map(seat => 
-                <ClickableSeat onPress={() => handleSelectSeat(seat.reserved, seat.no)}>
-                  <Seat 
-                    key={seat.no} 
-                    selected={selected===seat.no}
-                    reserved={seat.reserved}
-                    extraLegroom={seat.extraLegroom}>
-                      {seat.no}
-                  </Seat>
-                </ClickableSeat>
+                <Seat 
+                  no={seat.no}
+                  color={() => handleSeatColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
+                  backgroundColor={() => handleSeatBackgroundColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
+                  onPress={() => handleSelectSeat(seat.reserved, seat.no)}
+                />
               )}
             </SeatColumn>
             <SeatColumn>
               {seats.D.map(seat => 
-                <ClickableSeat onPress={() => handleSelectSeat(seat.reserved, seat.no)}>
-                  <Seat 
-                    key={seat.no} 
-                    selected={selected===seat.no}
-                    reserved={seat.reserved}
-                    extraLegroom={seat.extraLegroom}>
-                      {seat.no}
-                  </Seat>
-                </ClickableSeat>
+                <Seat 
+                  no={seat.no}
+                  color={() => handleSeatColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
+                  backgroundColor={() => handleSeatBackgroundColor(selected === seat.no, seat.reserved, seat.extraLegroom)}
+                  onPress={() => handleSelectSeat(seat.reserved, seat.no)}
+                />
               )}
             </SeatColumn>
           </Side>
         </SeatRow>
         <Button 
           text="Confirm"
+          onPress={handleConfirm}
         />
       </SeatArea>
       <AirplaneSeat />
@@ -146,32 +162,4 @@ const Side = styled.View`
 
 const SeatColumn = styled.View`
   margin: 0 10px 0 10px;
-`;
-
-const ClickableSeat = styled.TouchableOpacity`
-  width: 40px;
-  margin: 10px 0 10px 0;
-`;
-
-const Seat = styled.Text`
-  font-size: 16px;
-  line-height: 40px;
-  border-radius: 4px;
-  text-align: center;
-  color: ${props => {
-    if(props.reserved)
-      return '#555555';
-    if(props.selected || props.extraLegroom)
-      return '#FFFFFF';
-    return '#555555';
-  }};
-  background-color: ${props => {
-    if(props.reserved)
-      return '#D9D9D9';
-    else if(props.selected)
-      return '#EC441E';
-    else if(props.extraLegroom)
-      return '#7C7270';
-    return 'rgba(59, 119, 220, 0.05)';
-  }};
 `;
