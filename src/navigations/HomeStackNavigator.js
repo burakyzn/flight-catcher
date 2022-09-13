@@ -1,5 +1,6 @@
 import Home from "../screens/Home";
 import SearchResult from "../screens/SearchResult";
+import SeatSelection from '../screens/SeatSelection';
 import BackButton from "../components/navigation/BackButton"; 
 import HeaderTitle from "../components/navigation/HeaderTitle";
 import FlightDetail from "../screens/FlightDetail";
@@ -49,6 +50,18 @@ export default function HomeStackNavigator() {
           headerBackVisible: false,
           headerLeft: () => <BackButton />,
           headerTitle: () => <HeaderTitle title={SCREEN_TITLE.flightDetail}/>,
+        })}
+      />
+      <HomeStack.Screen
+        name={SCREEN.seatSelection}
+        component={SeatSelection}
+        options={() => ({
+          headerShadowVisible: false,
+          headerStyle: styles.header,
+          headerTitleAlign : 'center',
+          headerBackVisible: false,
+          headerLeft: () => <BackButton />,
+          headerTitle: () => <HeaderTitle title={SCREEN_TITLE.seatSelection}/>,
         })}
       />
     </HomeStack.Navigator>

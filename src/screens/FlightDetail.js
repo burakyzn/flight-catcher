@@ -1,10 +1,12 @@
 import styled from 'styled-components/native';
 import Button from '../components/Button';
 import FlightDetailCard from '../components/flightDetail/FlightDetailCard';
-import { useRoute } from '@react-navigation/native';
+import { SCREEN } from '../contants/screen';
+import { useRoute, useNavigation } from '@react-navigation/native';
 
 export default function FlightDetail() {
   const route = useRoute();
+  const navigation = useNavigation();
 
   const {
     from,
@@ -42,7 +44,7 @@ export default function FlightDetail() {
           />
         </Column>
         <Column>
-          <Button text="Confirm"/>
+          <Button onPress={() => navigation.navigate(SCREEN.seatSelection)} text="Confirm"/>
         </Column>
       </Row>
     </View>
