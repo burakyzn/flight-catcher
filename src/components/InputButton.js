@@ -1,20 +1,20 @@
 import styled from 'styled-components/native';
 
-export default function BookingButton(props) {
+export default function InputButton(props) {
   const {label, value, image, onPress, style, disabled} = props;
 
   return (
-    <Container onPress={onPress} style={style} disabled={disabled}>
+    <View onPress={onPress} style={style} disabled={disabled}>
       <Label disabled={disabled}>{label}</Label>
       <InputArea>
         {image}
         <Input disabled={disabled} numberOfLines={1} image={image}>{value ? value : `${label} Date`}</Input>
       </InputArea>
-    </Container>
+    </View>
   )
 }
 
-const Container = styled.TouchableOpacity`
+const View = styled.TouchableOpacity`
   flex: 1.5;
   align-items: flex-start;
   margin-top: 15px;

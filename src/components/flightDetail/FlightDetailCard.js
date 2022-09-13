@@ -2,7 +2,7 @@ import Clock from '../svg/Clock';
 import Calendar from '../svg/Calendar';
 import styled from 'styled-components/native';
 import AirplaneFlight from '../svg/AirplaneFlight';
-import BookingButton from '../booking/BookingButton';
+import InputButton from '../InputButton';
 
 export default function FlightDetailCard(props) {
   const { 
@@ -40,14 +40,14 @@ export default function FlightDetailCard(props) {
           </Column>
         </Row>
         <Row>
-          <BookingButton 
+          <InputButton 
             label="Date"
             value={date}
             image={ <Calendar /> }
             style={{ marginRight: 10 }}
             disabled
           />
-          <BookingButton 
+          <InputButton 
             label="Time"
             value={flightTime}
             image={ <Clock /> }

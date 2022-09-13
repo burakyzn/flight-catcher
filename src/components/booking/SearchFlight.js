@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import BookingButton from './BookingButton';
+import InputButton from '../InputButton';
 import AirplaneTakeOff from '../svg/AirplaneTakeOff';
 import AirplaneLanding from '../svg/AirplaneLanding';
 import Calendar from '../svg/Calendar';
@@ -38,38 +38,38 @@ export default function SearchFlight(props) {
 
   return (  
     <View>
-      <BookingButton 
+      <InputButton 
         label="From"
         value="Istanbul"
         image={ <AirplaneTakeOff /> }
       />
-      <BookingButton 
+      <InputButton 
         label="To"
         value="Berlin"
         image={ <AirplaneLanding /> }
         disabled={ isDisabledReturnFlight }
       />
       <Row>
-        <BookingButton 
+        <InputButton 
           label="Departure"
           value="15/10/2022"
           image={ <Calendar /> }
           style={{ marginRight: 10 }}
         />
-        <BookingButton 
+        <InputButton 
           label="Return"
           value="15/11/2022"
           image={ <Calendar /> }
         />
       </Row>
       <Row>
-        <BookingButton 
+        <InputButton 
           label="Traveler"
           value={traveler}
           onPress={handleTravelerModalPress}
           style={{ marginRight: 10 }}
         />
-        <BookingButton 
+        <InputButton 
           label="Class"
           value={cabinClass}
           onPress={handleCabinClassModalPress}
