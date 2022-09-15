@@ -1,38 +1,19 @@
 import styled from 'styled-components/native';
 import Button from '../Button';
 import AirplaneFlight from '../svg/AirplaneFlight';
+import { useContext } from 'react';
+import { FlightContext } from "../../contexts/flightContext";
 import { useNavigation } from '@react-navigation/native';
 import { SCREEN } from '../../contants/screen';
 
 export default function FlightCard(params) {
-  const { 
-    code, 
-    from, 
-    to, 
-    fromAirport,
-    toAirport,
-    departureTime, 
-    arrivalTime,
-    date, 
-    cabinClass, 
-    flightTime, 
-    price 
-  } = params;
-
+  const { flight } = params;
   const navigation = useNavigation();
+  const { setFlight } = useContext(FlightContext);
 
   const handleCheckButton = () => {
-    navigation.navigate(SCREEN.flightDetail, {
-      from : from,
-      to : to,
-      fromAirport: fromAirport,
-      toAirport : toAirport,
-      departureTime: departureTime,
-      arrivalTime: arrivalTime,
-      flightTime: flightTime,
-      date: date,
-      price: price
-    });
+    setFlight(flight);
+    navigation.navigate(SCREEN.flightDetail);
   };
 
   return (  
@@ -40,29 +21,29 @@ export default function FlightCard(params) {
       <Wrapper>
         <Row>
           <Column>
-            <Code>{code}</Code>
+            <Code>{flight.code}</Code>
           </Column>
           <Column>
-            <FlightTime>{flightTime}</FlightTime>
+            <FlightTime>{flight.flightTime}</FlightTime>
           </Column>
         </Row>
         <Row>
           <Column>
-            <Time>{departureTime}</Time>
-            <Location>{from}</Location>
+            <Time>{flight.departureTime}</Time>
+            <Location>{flight.from}</Location>
           </Column>
           <AirplaneFlight/>
           <Column>
-            <Time textAlign="right">{arrivalTime}</Time>
-            <Location>{to}</Location>
+            <Time textAlign="right">{flight.arrivalTime}</Time>
+            <Location>{flight.to}</Location>
           </Column>
         </Row>
         <Row>
           <Column>
-            <CabinClass>{cabinClass}</CabinClass>
+            <CabinClass>{flight.cabinClass}</CabinClass>
           </Column>
           <Column>
-            <Price>From {price}</Price>
+            <Price>From {flight.price}</Price>
           </Column>
         </Row>
         <Button 

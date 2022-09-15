@@ -2,38 +2,15 @@ import styled from 'styled-components/native';
 import Button from '../components/Button';
 import FlightDetailCard from '../components/flightDetail/FlightDetailCard';
 import { SCREEN } from '../contants/screen';
-import { useRoute, useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function FlightDetail() {
-  const route = useRoute();
   const navigation = useNavigation();
-
-  const {
-    from,
-    to,
-    fromAirport,
-    toAirport,
-    departureTime,
-    arrivalTime,
-    flightTime,
-    date,
-    price
-  } = route.params;
 
   return (
     <View>
       <Card>
-        <FlightDetailCard
-          from={from} 
-          to={to} 
-          fromAirport={fromAirport}
-          toAirport={toAirport}
-          departureTime={departureTime} 
-          arrivalTime={arrivalTime} 
-          date={date}
-          flightTime={flightTime}
-          price={price}
-        />
+        <FlightDetailCard />
       </Card>
       <Row>
         <Column>

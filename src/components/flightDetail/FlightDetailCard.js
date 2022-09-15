@@ -3,59 +3,51 @@ import Calendar from '../svg/Calendar';
 import styled from 'styled-components/native';
 import AirplaneFlight from '../svg/AirplaneFlight';
 import InputButton from '../InputButton';
+import { FlightContext } from '../../contexts/flightContext';
+import { useContext } from 'react';
 
 export default function FlightDetailCard(props) {
-  const { 
-    from, 
-    to, 
-    fromAirport, 
-    toAirport, 
-    departureTime, 
-    arrivalTime, 
-    date, 
-    flightTime, 
-    price 
-  } = props;
+  const { flight } = useContext(FlightContext);
 
   return (  
     <View>
       <Wrapper>
         <Row>
           <Column>
-            <Time>{departureTime}</Time>
-            <Location>{from}</Location>
+            <Time>{flight.departureTime}</Time>
+            <Location>{flight.from}</Location>
           </Column>
           <AirplaneFlight/>
           <Column>
-            <Time textAlign="right">{arrivalTime}</Time>
-            <Location right>{to}</Location>
+            <Time textAlign="right">{flight.arrivalTime}</Time>
+            <Location right>{flight.to}</Location>
           </Column>
         </Row>
         <Row>
           <Column width="50%">
-            <Airport>{fromAirport}</Airport>
+            <Airport>{flight.fromAirport}</Airport>
           </Column>
           <Column width="50%">
-            <Airport textAlign="right">{toAirport}</Airport>
+            <Airport textAlign="right">{flight.toAirport}</Airport>
           </Column>
         </Row>
         <Row>
           <InputButton 
             label="Date"
-            value={date}
+            value={flight.date}
             image={ <Calendar /> }
             style={{ marginRight: 10 }}
             disabled
           />
           <InputButton 
             label="Time"
-            value={flightTime}
+            value={flight.flightTime}
             image={ <Clock /> }
             disabled
           />
         </Row>
         <Row>
-          <Price>{price}</Price>
+          <Price>{flight.price}</Price>
         </Row>
       </Wrapper>
     </View>

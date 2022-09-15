@@ -40,7 +40,6 @@ export default function CreditCardEntry() {
       </CreditCard>
       <ButtonArea>
         <Button 
-          onPress={() => navigation.navigate(SCREEN.seatSelection)} 
           text="Confirm"/>
         <Button 
           text="Cancel"

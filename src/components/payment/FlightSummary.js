@@ -1,29 +1,33 @@
 import styled from 'styled-components/native';
 import AirplaneFlight from '../svg/AirplaneFlight';
+import { FlightContext } from '../../contexts/flightContext';
+import { useContext } from 'react';
 
 export default function FlightSummary() {
+  const { flight } = useContext(FlightContext);
+
   return (
     <View>
       <Wrapper>
         <Row>
           <Column>
-            <Code>TK313</Code>
+            <Code>{flight.code}</Code>
           </Column>
           <Column>
             <Date>
-              15/07/2022
+              {flight.date}
             </Date>
           </Column>
         </Row>
         <Row>
           <Column>
-            <Time>10:10</Time>
-            <Location>SAW (Istanbul)</Location>
+            <Time>{flight.departureTime}</Time>
+            <Location>{flight.from}</Location>
           </Column>
           <AirplaneFlight/>
           <Column>
-            <Time textAlign="right">12:10</Time>
-            <Location right>BER (Berlin)</Location>
+            <Time textAlign="right">{flight.arrivalTime}</Time>
+            <Location right>{flight.to}</Location>
           </Column>
         </Row>
         <Row>
@@ -31,7 +35,7 @@ export default function FlightSummary() {
             <PriceText>Total</PriceText>
           </Column>
           <Column>
-            <Price>$230</Price>
+            <Price>{flight.price}</Price>
           </Column>
         </Row>
       </Wrapper>

@@ -4,22 +4,10 @@ import FlightCard from '../components/searchResult/FlightCard';
 import { FlatList } from 'react-native';
 
 export default function SearchResult() {
-  const renderItem = ({ item }) => (
-    <FlightCard 
-      code={item.code}
-      from={item.from} 
-      to={item.to} 
-      fromAirport={item.fromAirport}
-      toAirport={item.toAirport}
-      departureTime={item.departureTime} 
-      arrivalTime={item.arrivalTime} 
-      date={item.date}
-      cabinClass={item.cabinClass} 
-      flightTime={item.flightTime} 
-      price={item.price}
-    />
+  const renderItem = ({ item }) =>  (
+    <FlightCard flight={item} />
   );
-
+  
   return (
     <View>
       <FlatList
