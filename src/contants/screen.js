@@ -5,7 +5,8 @@ export const SCREEN = Object.freeze({
   profile: "Profile",
   searchResult : "SearchResult",
   flightDetail: "FlightDetail",
-  seatSelection: "SeatSelection"
+  seatSelection: "SeatSelection",
+  payment: "Payment"
 })
 
 export const STACKS = Object.freeze({
@@ -19,7 +20,8 @@ export const SCREEN_TITLE = Object.freeze({
   profile: "Personal Info",
   searchFlight: "Search Flight",
   flightDetail: "Flight Detail",
-  seatSelection: "Choose Seat"
+  seatSelection: "Choose Seat",
+  payment: "Payment"
 })
 
 export const SCREEN_ICON = Object.freeze({

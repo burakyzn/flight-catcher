@@ -4,6 +4,7 @@ import SeatSelection from '../screens/SeatSelection';
 import BackButton from "../components/navigation/BackButton"; 
 import HeaderTitle from "../components/navigation/HeaderTitle";
 import FlightDetail from "../screens/FlightDetail";
+import Payment from '../screens/Payment';
 import supportedOS from '../contants/supportedOS';
 import { SCREEN, SCREEN_TITLE } from '../contants/screen';
 import { StyleSheet, Platform } from 'react-native';
@@ -62,6 +63,18 @@ export default function HomeStackNavigator() {
           headerBackVisible: false,
           headerLeft: () => <BackButton />,
           headerTitle: () => <HeaderTitle title={SCREEN_TITLE.seatSelection}/>,
+        })}
+      />
+      <HomeStack.Screen
+        name={SCREEN.payment}
+        component={Payment}
+        options={() => ({
+          headerShadowVisible: false,
+          headerStyle: styles.header,
+          headerTitleAlign : 'center',
+          headerBackVisible: false,
+          headerLeft: () => <BackButton />,
+          headerTitle: () => <HeaderTitle title={SCREEN_TITLE.payment}/>,
         })}
       />
     </HomeStack.Navigator>
