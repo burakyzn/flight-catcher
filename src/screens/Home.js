@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import FlightTypeTabs from '../components/booking/FlightTypeTabs';
 import HotOffers from '../components/offer/HotOffers';
 import SearchFlight from '../components/booking/SearchFlight';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Home() {
   const [selectedType, setSelectedType] = useState(0);

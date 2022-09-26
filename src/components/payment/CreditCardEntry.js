@@ -1,9 +1,13 @@
 import styled from 'styled-components/native';
 import Input from '../Input';
 import Button from '../Button';
+import { SCREEN } from '../../contants/screen';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 export default function CreditCardEntry() {
+  const navigation = useNavigation();
+
   const [cardNumber, setCardNumber] = useState(null);
   const [holderName, setHolderName] = useState(null);
   const [CVV, setCVV] = useState(null);
@@ -40,7 +44,9 @@ export default function CreditCardEntry() {
       </CreditCard>
       <ButtonArea>
         <Button 
-          text="Confirm"/>
+          text="Confirm"
+          onPress={() => navigation.navigate(SCREEN.boardingPass)}
+          />
         <Button 
           text="Cancel"
           backgroundColor="#FFFFFF"

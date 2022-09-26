@@ -5,6 +5,7 @@ import BackButton from "../components/navigation/BackButton";
 import HeaderTitle from "../components/navigation/HeaderTitle";
 import FlightDetail from "../screens/FlightDetail";
 import Payment from '../screens/Payment';
+import BoardingPass from '../screens/BoardingPass';
 import supportedOS from '../contants/supportedOS';
 import FlightProvider from "../contexts/flightContext";
 import { SCREEN, SCREEN_TITLE } from '../contants/screen';
@@ -77,6 +78,18 @@ export default function HomeStackNavigator() {
             headerBackVisible: false,
             headerLeft: () => <BackButton />,
             headerTitle: () => <HeaderTitle title={SCREEN_TITLE.payment}/>,
+          })}
+        />
+        <HomeStack.Screen
+          name={SCREEN.boardingPass}
+          component={BoardingPass}
+          options={() => ({
+            headerShadowVisible: false,
+            headerStyle: styles.header,
+            headerTitleAlign : 'center',
+            headerBackVisible: false,
+            headerLeft: () => <BackButton />,
+            headerTitle: () => <HeaderTitle title={SCREEN_TITLE.boardingPass}/>,
           })}
         />
       </HomeStack.Navigator>

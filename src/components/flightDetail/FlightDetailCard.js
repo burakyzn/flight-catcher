@@ -6,7 +6,7 @@ import InputButton from '../InputButton';
 import { FlightContext } from '../../contexts/flightContext';
 import { useContext } from 'react';
 
-export default function FlightDetailCard(props) {
+export default function FlightDetailCard() {
   const { flight } = useContext(FlightContext);
 
   return (  

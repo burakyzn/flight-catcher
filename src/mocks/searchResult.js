@@ -11,7 +11,8 @@ export default [
     date: "15/10/2022",
     cabinClass: "Business Class",
     flightTime: "2hr 50min",
-    price: "$392"
+    price: "$392",
+    gate: 10
   },
   {
     id: 2,
@@ -25,7 +26,8 @@ export default [
     date: "15/10/2022",
     cabinClass: "Business Class",
     flightTime: "3hr 0min",
-    price: "$247"
+    price: "$247",
+    gate: 11
   },
   {
     id: 3,
@@ -39,7 +41,8 @@ export default [
     date: "15/10/2022",
     cabinClass: "Business Class",
     flightTime: "2hr 50min",
-    price: "$390"
+    price: "$390",
+    gate: 12
   },
   {
     id: 4,
@@ -53,7 +56,8 @@ export default [
     date: "15/10/2022",
     cabinClass: "Business Class",
     flightTime: "3hr 0min",
-    price: "$213"
+    price: "$213",
+    gate: 13
   },
   {
     id: 5,
@@ -67,7 +71,8 @@ export default [
     date: "15/10/2022",
     cabinClass: "Business Class",
     flightTime: "2hr 50min",
-    price: "$713"
+    price: "$713",
+    gate: 14
   },
   {
     id: 6,
@@ -81,7 +86,8 @@ export default [
     date: "15/10/2022",
     cabinClass: "Business Class",
     flightTime: "1hr 40min",
-    price: "$342"
+    price: "$342",
+    gate: 15
   },
   {
     id: 7,
@@ -95,6 +101,7 @@ export default [
     date: "15/10/2022",
     cabinClass: "Business Class",
     flightTime: "2hr 55min",
-    price: "$390"
+    price: "$390",
+    gate: 16
   },
 ]
