@@ -3,11 +3,13 @@ import seats from '../../mocks/seats';
 import Button from '../Button';
 import Seat from '../seatSelection/Seat';
 import { SCREEN } from '../../contants/screen';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { AlertContext } from '../../contexts/alertContext';
 
 export default function SeatArea() {
   const [selected, setSelected] = useState(null);
+  const { setAlert } = useContext(AlertContext);
   const navigation = useNavigation();
 
   const handleSelectSeat = (reserved, seatNo) => {
@@ -16,6 +18,11 @@ export default function SeatArea() {
   }
 
   const handleConfirm = () => {
+    if(!selected){
+      setAlert('info', 'Information', 'You must choose a seat.');
+      return;
+    }
+
     navigation.navigate(SCREEN.payment);
   }
 
