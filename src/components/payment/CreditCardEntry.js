@@ -50,7 +50,9 @@ export default function CreditCardEntry() {
         <Button 
           text="Cancel"
           backgroundColor="#FFFFFF"
-          color="#EC441E"/>
+          color="#EC441E"
+          onPress={() => navigation.navigate(SCREEN.searchResult)}
+          />
       </ButtonArea>
     </View>
   )

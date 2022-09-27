@@ -18,6 +18,7 @@ export default function FlightDetail() {
             text="Cancel"
             backgroundColor="#FFFFFF"
             color="#EC441E"
+            onPress={() => navigation.goBack()}
           />
         </Column>
         <Column>
