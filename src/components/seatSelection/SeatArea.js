@@ -6,10 +6,12 @@ import { SCREEN } from '../../contants/screen';
 import { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { AlertContext } from '../../contexts/alertContext';
+import { SeatContext } from '../../contexts/seatContext';
 
 export default function SeatArea() {
   const [selected, setSelected] = useState(null);
   const { setAlert } = useContext(AlertContext);
+  const { setSeat } = useContext(SeatContext);
   const navigation = useNavigation();
 
   const handleSelectSeat = (reserved, seatNo) => {
@@ -23,6 +25,7 @@ export default function SeatArea() {
       return;
     }
 
+    setSeat(selected);
     navigation.navigate(SCREEN.payment);
   }
 

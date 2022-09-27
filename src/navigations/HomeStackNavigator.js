@@ -8,6 +8,7 @@ import Payment from '../screens/Payment';
 import BoardingPass from '../screens/BoardingPass';
 import supportedOS from '../contants/supportedOS';
 import FlightProvider from "../contexts/flightContext";
+import SeatProvider from "../contexts/seatContext";
 import { SCREEN, SCREEN_TITLE } from '../contants/screen';
 import { StyleSheet, Platform } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -17,82 +18,83 @@ const HomeStack = createNativeStackNavigator();
 export default function HomeStackNavigator() {
   return (
     <FlightProvider>
-      <HomeStack.Navigator screenOptions={ 
-        { 
-          tabBarStyle: [styles.tabBarStyle],
-        }
-      }>
-        <HomeStack.Screen
-          name={SCREEN.home}
-          component={Home}
-          options={() => ({
-            headerShadowVisible: false,
-            headerStyle: styles.header,
-            headerTitleAlign : 'center',
-            headerTitle: () => <HeaderTitle title={SCREEN_TITLE.home}/>,
-          })}
-        />
-        <HomeStack.Screen
-          name={SCREEN.searchResult}
-          component={SearchResult}
-          options={() => ({
-            headerShadowVisible: false,
-            headerStyle: styles.header,
-            headerTitleAlign : 'center',
-            headerBackVisible: false,
-            headerLeft: () => <BackButton />,
-            headerTitle: () => <HeaderTitle title={SCREEN_TITLE.searchFlight}/>,
-          })}
-        />
-        <HomeStack.Screen
-          name={SCREEN.flightDetail}
-          component={FlightDetail}
-          options={() => ({
-            headerShadowVisible: false,
-            headerStyle: styles.header,
-            headerTitleAlign : 'center',
-            headerBackVisible: false,
-            headerLeft: () => <BackButton />,
-            headerTitle: () => <HeaderTitle title={SCREEN_TITLE.flightDetail}/>,
-          })}
-        />
-        <HomeStack.Screen
-          name={SCREEN.seatSelection}
-          component={SeatSelection}
-          options={() => ({
-            headerShadowVisible: false,
-            headerStyle: styles.header,
-            headerTitleAlign : 'center',
-            headerBackVisible: false,
-            headerLeft: () => <BackButton />,
-            headerTitle: () => <HeaderTitle title={SCREEN_TITLE.seatSelection}/>,
-          })}
-        />
-        <HomeStack.Screen
-          name={SCREEN.payment}
-          component={Payment}
-          options={() => ({
-            headerShadowVisible: false,
-            headerStyle: styles.header,
-            headerTitleAlign : 'center',
-            headerBackVisible: false,
-            headerLeft: () => <BackButton />,
-            headerTitle: () => <HeaderTitle title={SCREEN_TITLE.payment}/>,
-          })}
-        />
-        <HomeStack.Screen
-          name={SCREEN.boardingPass}
-          component={BoardingPass}
-          options={() => ({
-            headerShadowVisible: false,
-            headerStyle: styles.header,
-            headerTitleAlign : 'center',
-            headerBackVisible: false,
-            headerLeft: () => <BackButton />,
-            headerTitle: () => <HeaderTitle title={SCREEN_TITLE.boardingPass}/>,
-          })}
-        />
-      </HomeStack.Navigator>
+      <SeatProvider>
+        <HomeStack.Navigator screenOptions={ 
+          { 
+            tabBarStyle: [styles.tabBarStyle],
+          }
+        }>
+          <HomeStack.Screen
+            name={SCREEN.home}
+            component={Home}
+            options={() => ({
+              headerShadowVisible: false,
+              headerStyle: styles.header,
+              headerTitleAlign : 'center',
+              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.home}/>,
+            })}
+          />
+          <HomeStack.Screen
+            name={SCREEN.searchResult}
+            component={SearchResult}
+            options={() => ({
+              headerShadowVisible: false,
+              headerStyle: styles.header,
+              headerTitleAlign : 'center',
+              headerBackVisible: false,
+              headerLeft: () => <BackButton />,
+              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.searchFlight}/>,
+            })}
+          />
+          <HomeStack.Screen
+            name={SCREEN.flightDetail}
+            component={FlightDetail}
+            options={() => ({
+              headerShadowVisible: false,
+              headerStyle: styles.header,
+              headerTitleAlign : 'center',
+              headerBackVisible: false,
+              headerLeft: () => <BackButton />,
+              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.flightDetail}/>,
+            })}
+          />
+          <HomeStack.Screen
+            name={SCREEN.seatSelection}
+            component={SeatSelection}
+            options={() => ({
+              headerShadowVisible: false,
+              headerStyle: styles.header,
+              headerTitleAlign : 'center',
+              headerBackVisible: false,
+              headerLeft: () => <BackButton />,
+              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.seatSelection}/>,
+            })}
+          />
+          <HomeStack.Screen
+            name={SCREEN.payment}
+            component={Payment}
+            options={() => ({
+              headerShadowVisible: false,
+              headerStyle: styles.header,
+              headerTitleAlign : 'center',
+              headerBackVisible: false,
+              headerLeft: () => <BackButton />,
+              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.payment}/>,
+            })}
+          />
+          <HomeStack.Screen
+            name={SCREEN.boardingPass}
+            component={BoardingPass}
+            options={() => ({
+              headerShadowVisible: false,
+              headerStyle: styles.header,
+              headerTitleAlign : 'center',
+              headerBackVisible: false,
+              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.boardingPass}/>,
+            })}
+          />
+        </HomeStack.Navigator>
+      </SeatProvider>
     </FlightProvider>
   );
 }

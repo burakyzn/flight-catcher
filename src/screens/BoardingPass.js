@@ -7,14 +7,16 @@ import { useContext } from 'react';
 import { FlightContext } from '../contexts/flightContext';
 import { SCREEN } from '../contants/screen';
 import { useNavigation } from '@react-navigation/native';
+import { SeatContext } from '../contexts/seatContext';
 
 export default function BoardingPass() {
   const { flight } = useContext(FlightContext);
+  const { seat } = useContext(SeatContext);
   const navigation = useNavigation();
 
   return (
     <View>
-      <BoardingDetail flight={flight} seat="2B"/>
+      <BoardingDetail flight={flight} seat={seat}/>
       <Row center>
         <Barcode />
       </Row>

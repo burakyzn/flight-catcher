@@ -33,6 +33,8 @@ export default function SearchFlight(props) {
   }
 
   const handleSearch = () => {
+    bottomTravelerModalRef.current?.close();
+    bottomCabinClassModalRef.current?.close();
     navigation.navigate(SCREEN.searchResult);
   };
 
