@@ -1,10 +1,13 @@
 import { NavigationContainer } from "@react-navigation/native";
 import TabNavigator from "./TabNavigator";
+import AlertProvider from "../contexts/alertContext";
 
 export default function RootNavigator() {
   return (
     <NavigationContainer>
-      <TabNavigator />
+      <AlertProvider>
+        <TabNavigator />
+      </AlertProvider>
     </NavigationContainer>
   );
 };
