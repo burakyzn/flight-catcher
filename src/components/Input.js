@@ -1,13 +1,21 @@
 import styled from 'styled-components/native';
+import { useImperativeHandle, forwardRef } from 'react';
 
-export default function Input(props){
+function Input(props, ref){
   const {
     type,
     value,
     label,
     onChange,
     placeholder,
+    maxLength,
+    validation
   } = props;
+
+  useImperativeHandle(ref, () => ({
+    isEmpty: () => value.trim(),
+    validate: () => validation()
+  }))
 
   return (
     <View>
@@ -17,10 +25,13 @@ export default function Input(props){
         value={value}
         placeholder={placeholder}
         keyboardType={type}
+        maxLength={maxLength}
       />
     </View> 
   )
 }
+
+export default forwardRef(Input);
 
 const View = styled.View`
   width: 100%;
