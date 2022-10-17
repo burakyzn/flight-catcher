@@ -7,7 +7,7 @@ import { FlatList } from 'react-native';
 export default function Booking() {
   const renderItem = ({ item }) =>  (
     <Wrapper>
-      <BoardingDetail flight={item} />
+      <BoardingDetail flight={item} seat={item.seat}/>
       <ButtonArea>
         <Button 
           text="Modify"
