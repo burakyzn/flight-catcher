@@ -8,9 +8,13 @@ import { AlertContext } from '../../contexts/alertContext';
 
 
 export default function CreditCardEntry() {
-  const numberRegex = /^[0-9]+$/;
-  const textRegex = /^[a-zA-Z\s]+$/;
-  const dateRegex = /^[0-9]*[\/]*[0-9]*$/;
+  const NUMBER_REGEX = /^[0-9\s]+$/;
+  const STRING_REGEX = /^[a-zA-Z\s]+$/;
+  const CVV_REGEX = /^[0-9]{0,2}([\/][0-9]{0,2}){0,1}$/;
+  const SPACE_REGEX = /\s/g;
+  const SLASH_REGEX = /\//g;
+  const FOUR_CHARACTERS_REGEX = /(.{4})/g;
+  const TWO_CHARACTERS_REGEX = /(.{2})/g;
   
   const navigation = useNavigation();
   
@@ -25,37 +29,33 @@ export default function CreditCardEntry() {
   const [CVV, setCVV] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
 
+  const handleChangeCardNumber = (number) => {
+    if(number.length === 0 || NUMBER_REGEX.test(number))
+      setCardNumber(number.replace(SPACE_REGEX, '').replace(FOUR_CHARACTERS_REGEX, '$1 ').trim());
+  }
+
   const handleChangeHolderName = (name) => {
-    if(name.length === 0 || textRegex.test(name))
+    if(name.length === 0 || STRING_REGEX.test(name))
       setHolderName(name.toUpperCase());
   }
 
-  const handleChangeCardNumber = (number) => {
-    if(number.length === 0 || numberRegex.test(number))
-      setCardNumber(number);
-  }
-
   const handleChangeCVV = (number) => {
-    if(number.length === 0 || numberRegex.test(number))
-      setCVV(number);
+    if(number.length === 0 || NUMBER_REGEX.test(number))
+      setCVV(number.trim());
   }
 
-  const handleChangeExpiryDate = (date) => {
-    if(date.length === 2 && expiryDate.length !== 3){
-      if(numberRegex.test(date))
-        setExpiryDate(date + '/');
-    } else if(date.length === 2 && expiryDate.length === 3){
-      setExpiryDate(date.substring(0,1));
-    } else if(date.length > 2){
-      if(dateRegex.test(date)) 
-        setExpiryDate(date);
-    } else if(date.length === 0 || numberRegex.test(date)){
-      setExpiryDate(date);
-    }
+  const handleChangeExpiryDate = (date) => {
+    let formattedDate = date;
+    
+    if(formattedDate.length === 3)
+      formattedDate = formattedDate.replace(SLASH_REGEX, '').replace(TWO_CHARACTERS_REGEX, '$1/').trim()
+    
+    if(CVV_REGEX.test(formattedDate))
+      setExpiryDate(formattedDate);
   }
 
   const cardNumberValidation = () => {
-    if(!cardNumberRef.current.isEmpty() || cardNumber.length !== 16){
+    if(!cardNumberRef.current.isEmpty() || cardNumber.length !== 19){
       setAlert('warning', 'Warning', 'You must enter your 16-character card number.');
       return false;
     }
@@ -108,7 +108,7 @@ export default function CreditCardEntry() {
           value={cardNumber}
           onChange={handleChangeCardNumber}
           placeholder="5400 0000 0000 0000"
-          maxLength={16}
+          maxLength={19}
           validation={cardNumberValidation}
           ref={cardNumberRef}
         />
