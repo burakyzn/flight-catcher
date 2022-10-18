@@ -10,7 +10,7 @@ import { AlertContext } from '../../contexts/alertContext';
 export default function CreditCardEntry() {
   const NUMBER_REGEX = /^[0-9\s]+$/;
   const STRING_REGEX = /^[a-zA-Z\s]+$/;
-  const CVV_REGEX = /^[0-9]{0,2}([\/][0-9]{0,2}){0,1}$/;
+  const EXPIRY_DATE_REGEX = /^[0-9]{0,2}([\/][0-9]{0,2}){0,1}$/;
   const SPACE_REGEX = /\s/g;
   const SLASH_REGEX = /\//g;
   const FOUR_CHARACTERS_REGEX = /(.{4})/g;
@@ -50,7 +50,7 @@ export default function CreditCardEntry() {
     if(formattedDate.length === 3)
       formattedDate = formattedDate.replace(SLASH_REGEX, '').replace(TWO_CHARACTERS_REGEX, '$1/').trim()
     
-    if(CVV_REGEX.test(formattedDate))
+    if(EXPIRY_DATE_REGEX.test(formattedDate))
       setExpiryDate(formattedDate);
   }
 
