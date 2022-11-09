@@ -1,20 +1,20 @@
-import Clock from '../svg/Clock';
-import Calendar from '../svg/Calendar';
-import styled from 'styled-components/native';
-import AirplaneFlight from '../svg/AirplaneFlight';
-import InputButton from '../InputButton';
+import Clock from "../svg/Clock";
+import Calendar from "../svg/Calendar";
+import styled from "styled-components/native";
+import AirplaneFlight from "../svg/AirplaneFlight";
+import InputButton from "../InputButton";
 
 export default function BoardingDetail(props) {
   const { flight, seat } = props;
 
-  return (  
+  return (
     <View>
       <Row>
         <Column>
           <Time>{flight.departureTime}</Time>
           <Location>{flight.from}</Location>
         </Column>
-        <AirplaneFlight/>
+        <AirplaneFlight />
         <Column>
           <Time textAlign="right">{flight.arrivalTime}</Time>
           <Location right>{flight.to}</Location>
@@ -29,17 +29,17 @@ export default function BoardingDetail(props) {
         </Column>
       </Row>
       <Row>
-        <InputButton 
+        <InputButton
           label="Date"
           value={flight.date}
-          image={ <Calendar /> }
+          image={<Calendar />}
           style={{ marginRight: 10 }}
           disabled
         />
-        <InputButton 
+        <InputButton
           label="Time"
           value={flight.flightTime}
-          image={ <Clock /> }
+          image={<Clock />}
           disabled
         />
       </Row>
@@ -62,7 +62,7 @@ export default function BoardingDetail(props) {
         </Column>
       </Row>
     </View>
-  )
+  );
 }
 
 const View = styled.View`
@@ -72,13 +72,13 @@ const View = styled.View`
 const Row = styled.View`
   display: flex;
   flex-direction: row;
-  justify-content: ${props => props.center ? 'center' : "space-between"};;
+  justify-content: ${(props) => (props.center ? "center" : "space-between")};
   padding: 16px 0 16px 0;
 `;
 
 const Column = styled.View`
   justify-content: center;
-  ${props => props.width ? 'width:' + props.width : ""};
+  ${(props) => props.width && `width: ${props.width}`};
 `;
 
 const Time = styled.Text`
@@ -86,7 +86,7 @@ const Time = styled.Text`
   font-size: 24px;
   line-height: 24px;
   color: #191919;
-  ${props => props.textAlign ? `text-align: ${props.textAlign}` : ''};
+  ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
 const Location = styled.Text`
@@ -95,7 +95,7 @@ const Location = styled.Text`
   font-size: 16px;
   line-height: 19px;
   color: #191919;
-  ${props => props.textAlign ? `text-align: ${props.textAlign}` : ''};
+  ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
 const Airport = styled.Text`
@@ -103,7 +103,7 @@ const Airport = styled.Text`
   font-size: 12px;
   line-height: 15px;
   color: #666666;
-  ${props => props.textAlign ? `text-align: ${props.textAlign}` : ''};
+  ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
 const ButtonArea = styled.View`

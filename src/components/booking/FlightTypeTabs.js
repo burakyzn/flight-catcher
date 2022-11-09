@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 import { useState } from "react";
 import { Animated } from "react-native";
 
@@ -9,9 +9,11 @@ export default function FlightTypeTabs(props) {
   const [oneWayTabPosition, setOneWayTabPosition] = useState(0);
   const [roundTabPosition, setRoundTabPosition] = useState(0);
   const [multicityTabPosition, setMulticityTabPosition] = useState(0);
-  const [animationPosition, setAnimationPosition] = useState(new Animated.Value(0));
+  const [animationPosition, setAnimationPosition] = useState(
+    new Animated.Value(0)
+  );
 
-  const handleSlide = type => {
+  const handleSlide = (type) => {
     Animated.spring(animationPosition, {
       toValue: type,
       duration: 100,
@@ -23,25 +25,32 @@ export default function FlightTypeTabs(props) {
     setActiveTab(activeTab);
     handleSlide(position);
     onChangeType(activeTab);
-  }
+  };
 
-return (
+  return (
     <Container>
-      <AnimatedView style={{transform: [{translateX: animationPosition}]}}/>
+      <AnimatedView
+        style={{ transform: [{ translateX: animationPosition }] }}
+      />
       <Tab
-        onLayout ={event => setOneWayTabPosition(event.nativeEvent.layout.x)}
-        onPress={() => handleOnPressTab(0, oneWayTabPosition)}>
-        <TabText active={activeTab === 0} >One Way</TabText>
+        onLayout={(event) => setOneWayTabPosition(event.nativeEvent.layout.x)}
+        onPress={() => handleOnPressTab(0, oneWayTabPosition)}
+      >
+        <TabText active={activeTab === 0}>One Way</TabText>
       </Tab>
       <Tab
-        onLayout={event => setRoundTabPosition(event.nativeEvent.layout.x)}
-        onPress={() => handleOnPressTab(1, roundTabPosition)}>
-        <TabText active={activeTab === 1} >Round</TabText>
+        onLayout={(event) => setRoundTabPosition(event.nativeEvent.layout.x)}
+        onPress={() => handleOnPressTab(1, roundTabPosition)}
+      >
+        <TabText active={activeTab === 1}>Round</TabText>
       </Tab>
       <Tab
-        onLayout={event => setMulticityTabPosition(event.nativeEvent.layout.x)}
-        onPress={() => handleOnPressTab(2, multicityTabPosition)}>
-        <TabText active={activeTab === 2} >Multicity</TabText>
+        onLayout={(event) =>
+          setMulticityTabPosition(event.nativeEvent.layout.x)
+        }
+        onPress={() => handleOnPressTab(2, multicityTabPosition)}
+      >
+        <TabText active={activeTab === 2}>Multicity</TabText>
       </Tab>
     </Container>
   );
@@ -52,7 +61,7 @@ const Container = styled.View`
   flex-direction: row;
 `;
 
-const Tab = styled.TouchableOpacity`  
+const Tab = styled.TouchableOpacity`
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -63,7 +72,7 @@ const Tab = styled.TouchableOpacity`
 const TabText = styled.Text`
   font-size: 14px;
   font-family: Inter_400Regular;
-  color: ${props => props.active ? '#FFF' : '#999'};
+  color: ${(props) => (props.active ? "#FFFFFF" : "#999999")};
 `;
 
 const AnimatedView = styled(Animated.View)`
@@ -72,7 +81,6 @@ const AnimatedView = styled(Animated.View)`
   height: 100%;
   top: 0px;
   left: 0px;
-  background-color: #EC441E;
+  background-color: #ec441e;
   border-radius: 32px;
-
-`;  
+`;

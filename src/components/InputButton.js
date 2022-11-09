@@ -1,17 +1,19 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export default function InputButton(props) {
-  const {label, value, image, onPress, style, disabled} = props;
+  const { label, value, image, onPress, style, disabled } = props;
 
   return (
     <View onPress={onPress} style={style} disabled={disabled}>
       <Label disabled={disabled}>{label}</Label>
       <InputArea>
         {image}
-        <Input disabled={disabled} numberOfLines={1} image={image}>{value ? value : `${label} Date`}</Input>
+        <Input disabled={disabled} numberOfLines={1} image={image}>
+          {value ? value : `${label} Date`}
+        </Input>
       </InputArea>
     </View>
-  )
+  );
 }
 
 const View = styled.TouchableOpacity`
@@ -26,11 +28,11 @@ const Label = styled.Text`
   height: 24px;
   flex-grow: 0;
   margin: -15px 10px;
-  background-color: #FFF;
+  background-color: #fff;
   padding-left: 5px;
   padding-right: 5px;
   font-family: Inter_400Regular;
-  color: ${props => props.disabled ? 'gray' : 'black'};
+  color: ${(props) => (props.disabled ? "#808080" : "#000000")};
 `;
 
 const InputArea = styled.View`
@@ -40,7 +42,7 @@ const InputArea = styled.View`
   flex-direction: row;
   border-radius: 8px;
   padding: 15px 15px;
-  border: 1px solid #E6E8E7;
+  border: 1px solid #e6e8e7;
 `;
 
 const Input = styled.Text`
@@ -48,8 +50,8 @@ const Input = styled.Text`
   line-height: 24px;
   color: #191919;
   flex-grow: 0;
-  margin-left: ${props => props.image ? '12px' : '0'};
   font-family: Inter_600SemiBold;
   width: 100%;
-  color: ${props => props.disabled ? 'gray' : 'black'};
+  color: ${(props) => (props.disabled ? "#808080" : "#000000")};
+  ${(props) => props.image && "margin-left: 12px"};
 `;

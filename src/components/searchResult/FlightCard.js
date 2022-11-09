@@ -1,10 +1,10 @@
-import styled from 'styled-components/native';
-import Button from '../Button';
-import AirplaneFlight from '../svg/AirplaneFlight';
-import { useContext } from 'react';
+import styled from "styled-components/native";
+import Button from "../Button";
+import AirplaneFlight from "../svg/AirplaneFlight";
+import { useContext } from "react";
 import { FlightContext } from "../../contexts/flightContext";
-import { useNavigation } from '@react-navigation/native';
-import { SCREEN } from '../../contants/screen';
+import { useNavigation } from "@react-navigation/native";
+import { SCREEN } from "../../contants/screen";
 
 export default function FlightCard(params) {
   const { flight } = params;
@@ -16,7 +16,7 @@ export default function FlightCard(params) {
     navigation.navigate(SCREEN.flightDetail);
   };
 
-  return (  
+  return (
     <View>
       <Wrapper>
         <Row>
@@ -32,7 +32,7 @@ export default function FlightCard(params) {
             <Time>{flight.departureTime}</Time>
             <Location>{flight.from}</Location>
           </Column>
-          <AirplaneFlight/>
+          <AirplaneFlight />
           <Column>
             <Time textAlign="right">{flight.arrivalTime}</Time>
             <Location>{flight.to}</Location>
@@ -46,13 +46,10 @@ export default function FlightCard(params) {
             <Price>From {flight.price}</Price>
           </Column>
         </Row>
-        <Button 
-          text="Check"
-          onPress ={handleCheckButton}
-        />
+        <Button text="Check" onPress={handleCheckButton} />
       </Wrapper>
     </View>
-  )
+  );
 }
 
 const View = styled.View`
@@ -63,7 +60,7 @@ const View = styled.View`
 const Wrapper = styled.View`
   flex: 1;
   border-radius: 16px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0px 5px 10px rgba(89, 27, 27, 0.05);
   padding: 16px 16px 0px 16px;
 `;
@@ -98,7 +95,7 @@ const Time = styled.Text`
   font-size: 16px;
   line-height: 24px;
   color: #191919;
-  ${props => props.textAlign ? `text-align : ${props.textAlign}` : ''}
+  ${(props) => props.textAlign && `text-align : ${props.textAlign}`}
 `;
 
 const Location = styled.Text`
@@ -112,7 +109,7 @@ const CabinClass = styled.Text`
   font-family: Inter_400Regular;
   font-size: 14px;
   line-height: 16px;
-  color: #555555
+  color: #555555;
 `;
 
 const Price = styled.Text`

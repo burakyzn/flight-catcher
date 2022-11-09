@@ -1,7 +1,7 @@
-import styled from 'styled-components/native';
-import AirplaneFlight from '../svg/AirplaneFlight';
-import { FlightContext } from '../../contexts/flightContext';
-import { useContext } from 'react';
+import styled from "styled-components/native";
+import AirplaneFlight from "../svg/AirplaneFlight";
+import { FlightContext } from "../../contexts/flightContext";
+import { useContext } from "react";
 
 export default function FlightSummary() {
   const { flight } = useContext(FlightContext);
@@ -14,9 +14,7 @@ export default function FlightSummary() {
             <Code>{flight.code}</Code>
           </Column>
           <Column>
-            <Date>
-              {flight.date}
-            </Date>
+            <Date>{flight.date}</Date>
           </Column>
         </Row>
         <Row>
@@ -24,7 +22,7 @@ export default function FlightSummary() {
             <Time>{flight.departureTime}</Time>
             <Location>{flight.from}</Location>
           </Column>
-          <AirplaneFlight/>
+          <AirplaneFlight />
           <Column>
             <Time textAlign="right">{flight.arrivalTime}</Time>
             <Location right>{flight.to}</Location>
@@ -40,11 +38,11 @@ export default function FlightSummary() {
         </Row>
       </Wrapper>
     </View>
-  )
+  );
 }
 
 const View = styled.View`
-  background-color: #F9FBFA;
+  background-color: #f9fbfa;
   height: 225px;
   width: 100%;
 `;
@@ -52,7 +50,7 @@ const View = styled.View`
 const Wrapper = styled.View`
   flex: 1;
   border-radius: 0px 0px 16px 16px;
-  background-color: #EEEFEF;
+  background-color: #eeefef;
   box-shadow: 0px 5px 10px rgba(89, 27, 27, 0.05);
   padding: 16px 16px 0px 16px;
 `;
@@ -87,7 +85,7 @@ const Time = styled.Text`
   font-size: 24px;
   line-height: 24px;
   color: #191919;
-  ${props => props.textAlign ? `text-align: ${props.textAlign}` : ''};
+  ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
 const Location = styled.Text`
@@ -96,7 +94,7 @@ const Location = styled.Text`
   font-size: 16px;
   line-height: 19px;
   color: #191919;
-  ${props => props.textAlign ? `text-align: ${props.textAlign}` : ''};
+  ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
 const PriceText = styled.Text`
@@ -111,5 +109,5 @@ const Price = styled.Text`
   font-size: 22px;
   line-height: 27px;
   text-align: right;
-  color: #EC441E;
+  color: #ec441e;
 `;

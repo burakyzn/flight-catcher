@@ -1,22 +1,22 @@
-import styled from 'styled-components/native';
-import { useState, useEffect } from 'react';
+import styled from "styled-components/native";
+import { useState, useEffect } from "react";
 
 export default function Counter(props) {
   const { value, minValue, maxValue, onChangeValue } = props;
 
   const [count, setCount] = useState(value);
-  
+
   useEffect(() => {
     onChangeValue(count);
-  }, [count])
-  
+  }, [count]);
+
   const handleIncreaseCount = () => {
-    setCount(c => c + 1);
-  }
+    setCount((c) => c + 1);
+  };
 
   const handleDecreaseCount = () => {
-    setCount(c => c - 1);
-  }
+    setCount((c) => c - 1);
+  };
 
   const isMaxDisabled = () => maxValue === count;
 
@@ -34,7 +34,7 @@ export default function Counter(props) {
         <Text disabled={isMaxDisabled()}>+</Text>
       </Button>
     </Container>
-  )
+  );
 }
 
 const Container = styled.View`
@@ -45,7 +45,7 @@ const Container = styled.View`
 `;
 
 const Number = styled.View`
-  flex:1;
+  flex: 1;
   align-items: center;
   justify-content: center;
 `;
@@ -53,16 +53,18 @@ const Number = styled.View`
 const Text = styled.Text`
   font-size: 18px;
   font-family: Inter_500Medium;
-  color: ${props => props.disabled ? 'gray' : 'black'};;
+  color: ${(props) => (props.disabled ? "#808080" : "#000000")};
 `;
 
 const Button = styled.TouchableOpacity`
   width: 40px;
   height: 40px;
-  border: ${props => props.disabled ? '1px solid gray' : '1px solid black'};
   justify-content: center;
   align-items: center;
   margin-left: 5px;
   margin-right: 5px;
   border-radius: 50px;
+  ${(props) =>
+    props.disabled &&
+    `border: 1px solid ${props.disabled ? "808080" : "#000000"}`}
 `;

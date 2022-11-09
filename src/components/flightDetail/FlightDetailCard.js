@@ -1,15 +1,15 @@
-import Clock from '../svg/Clock';
-import Calendar from '../svg/Calendar';
-import styled from 'styled-components/native';
-import AirplaneFlight from '../svg/AirplaneFlight';
-import InputButton from '../InputButton';
-import { FlightContext } from '../../contexts/flightContext';
-import { useContext } from 'react';
+import Clock from "../svg/Clock";
+import Calendar from "../svg/Calendar";
+import styled from "styled-components/native";
+import AirplaneFlight from "../svg/AirplaneFlight";
+import InputButton from "../InputButton";
+import { FlightContext } from "../../contexts/flightContext";
+import { useContext } from "react";
 
 export default function FlightDetailCard() {
   const { flight } = useContext(FlightContext);
 
-  return (  
+  return (
     <View>
       <Wrapper>
         <Row>
@@ -17,7 +17,7 @@ export default function FlightDetailCard() {
             <Time>{flight.departureTime}</Time>
             <Location>{flight.from}</Location>
           </Column>
-          <AirplaneFlight/>
+          <AirplaneFlight />
           <Column>
             <Time textAlign="right">{flight.arrivalTime}</Time>
             <Location right>{flight.to}</Location>
@@ -32,17 +32,17 @@ export default function FlightDetailCard() {
           </Column>
         </Row>
         <Row>
-          <InputButton 
+          <InputButton
             label="Date"
             value={flight.date}
-            image={ <Calendar /> }
+            image={<Calendar />}
             style={{ marginRight: 10 }}
             disabled
           />
-          <InputButton 
+          <InputButton
             label="Time"
             value={flight.flightTime}
-            image={ <Clock /> }
+            image={<Clock />}
             disabled
           />
         </Row>
@@ -51,7 +51,7 @@ export default function FlightDetailCard() {
         </Row>
       </Wrapper>
     </View>
-  )
+  );
 }
 
 const View = styled.View`
@@ -62,7 +62,7 @@ const View = styled.View`
 const Wrapper = styled.View`
   flex: 1;
   border-radius: 16px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0px 5px 10px rgba(89, 27, 27, 0.05);
   padding: 16px 16px 0px 16px;
 `;
@@ -76,7 +76,7 @@ const Row = styled.View`
 
 const Column = styled.View`
   justify-content: center;
-  ${props => props.width ? 'width:' + props.width : ""};
+  ${(props) => props.width && `width: ${props.width}`};
 `;
 
 const Time = styled.Text`
@@ -84,7 +84,7 @@ const Time = styled.Text`
   font-size: 24px;
   line-height: 24px;
   color: #191919;
-  ${props => props.textAlign ? `text-align: ${props.textAlign}` : ''};
+  ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
 const Location = styled.Text`
@@ -93,7 +93,7 @@ const Location = styled.Text`
   font-size: 16px;
   line-height: 19px;
   color: #191919;
-  ${props => props.textAlign ? `text-align: ${props.textAlign}` : ''};
+  ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
 const Airport = styled.Text`
@@ -101,11 +101,11 @@ const Airport = styled.Text`
   font-size: 12px;
   line-height: 15px;
   color: #666666;
-  ${props => props.textAlign ? `text-align: ${props.textAlign}` : ''};
+  ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
 const Price = styled.Text`
-  flex:1;
+  flex: 1;
   font-family: Inter_600SemiBold;
   font-size: 32px;
   line-height: 32px;
