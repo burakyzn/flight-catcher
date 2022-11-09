@@ -85,7 +85,7 @@ const Time = styled.Text`
   font-family: Inter_600SemiBold;
   font-size: 24px;
   line-height: 24px;
-  color: #191919;
+  color: ${(props) => props.theme.textColor};
   ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
@@ -94,7 +94,7 @@ const Location = styled.Text`
   line-height: 12px;
   font-size: 16px;
   line-height: 19px;
-  color: #191919;
+  color: ${(props) => props.theme.textColor};
   ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
@@ -102,7 +102,7 @@ const Airport = styled.Text`
   font-family: Inter_300Light;
   font-size: 12px;
   line-height: 15px;
-  color: #666666;
+  color: ${(props) => props.theme.labelColor};
   ${(props) => props.textAlign && `text-align: ${props.textAlign}`};
 `;
 
@@ -116,12 +116,12 @@ const DetailText = styled.Text`
   font-family: Inter_400Regular;
   font-size: 12px;
   line-height: 20px;
-  color: #555555;
+  color: ${(props) => props.theme.labelColor};
 `;
 
 const Detail = styled.Text`
   font-family: Inter_500Medium;
   font-size: 16px;
   line-height: 24px;
-  color: #191919;
+  color: ${(props) => props.theme.textColor};
 `;

@@ -28,11 +28,12 @@ const Label = styled.Text`
   height: 24px;
   flex-grow: 0;
   margin: -15px 10px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.backgroundColorSecondary};
   padding-left: 5px;
   padding-right: 5px;
   font-family: Inter_400Regular;
-  color: ${(props) => (props.disabled ? "#808080" : "#000000")};
+  color: ${(props) =>
+    props.disabled ? props.theme.disabled : props.theme.labelColorSecondary};
 `;
 
 const InputArea = styled.View`
@@ -42,16 +43,17 @@ const InputArea = styled.View`
   flex-direction: row;
   border-radius: 8px;
   padding: 15px 15px;
-  border: 1px solid #e6e8e7;
+  border: 1px solid ${(props) => props.theme.buttonBorder};
 `;
 
 const Input = styled.Text`
   font-size: 16px;
   line-height: 24px;
-  color: #191919;
+  color: ${(props) => props.theme.textColor};
   flex-grow: 0;
   font-family: Inter_600SemiBold;
   width: 100%;
-  color: ${(props) => (props.disabled ? "#808080" : "#000000")};
+  color: ${(props) =>
+    props.disabled ? props.theme.disabled : props.theme.labelColorSecondary};
   ${(props) => props.image && "margin-left: 12px"};
 `;

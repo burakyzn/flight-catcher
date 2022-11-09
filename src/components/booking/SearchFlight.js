@@ -1,14 +1,14 @@
-import styled from 'styled-components/native';
-import InputButton from '../InputButton';
-import AirplaneTakeOff from '../svg/AirplaneTakeOff';
-import AirplaneLanding from '../svg/AirplaneLanding';
-import Calendar from '../svg/Calendar';
-import CabinClass from './bottomSheets/CabinClass';
-import Traveler from './bottomSheets/Traveler';
-import Button from '../Button';
-import { useCallback, useRef, useState } from 'react';
-import { SCREEN } from '../../contants/screen';
-import { useNavigation } from '@react-navigation/native';
+import styled from "styled-components/native";
+import InputButton from "../InputButton";
+import AirplaneTakeOff from "../svg/AirplaneTakeOff";
+import AirplaneLanding from "../svg/AirplaneLanding";
+import Calendar from "../svg/Calendar";
+import CabinClass from "./bottomSheets/CabinClass";
+import Traveler from "./bottomSheets/Traveler";
+import Button from "../Button";
+import { useCallback, useRef, useState } from "react";
+import { SCREEN } from "../../contants/screen";
+import { useNavigation } from "@react-navigation/native";
 
 export default function SearchFlight(props) {
   const { isDisabledReturnFlight } = props;
@@ -20,17 +20,17 @@ export default function SearchFlight(props) {
   const [traveler, setTraveler] = useState("1 Adult, 0 Child");
 
   const handleCabinClassModalPress = useCallback(() => {
-    bottomCabinClassModalRef.current?.present()
-  }, [])
+    bottomCabinClassModalRef.current?.present();
+  }, []);
 
   const handleTravelerModalPress = useCallback(() => {
-    bottomTravelerModalRef.current?.present()
-  }, [])
+    bottomTravelerModalRef.current?.present();
+  }, []);
 
   const handleChangeCabinClass = (cabinClass) => {
     setCabinClass(cabinClass);
     bottomCabinClassModalRef.current?.close();
-  }
+  };
 
   const handleSearch = () => {
     bottomTravelerModalRef.current?.close();
@@ -38,57 +38,55 @@ export default function SearchFlight(props) {
     navigation.navigate(SCREEN.searchResult);
   };
 
-  return (  
+  return (
     <View>
-      <InputButton 
-        label="From"
-        value="Istanbul"
-        image={ <AirplaneTakeOff /> }
-      />
-      <InputButton 
+      <InputButton label="From" value="Istanbul" image={<AirplaneTakeOff />} />
+      <InputButton
         label="To"
         value="Berlin"
-        image={ <AirplaneLanding /> }
-        disabled={ isDisabledReturnFlight }
+        image={<AirplaneLanding />}
+        disabled={isDisabledReturnFlight}
       />
       <Row>
-        <InputButton 
+        <InputButton
           label="Departure"
           value="15/10/2022"
-          image={ <Calendar /> }
+          image={<Calendar />}
           style={{ marginRight: 10 }}
         />
-        <InputButton 
-          label="Return"
-          value="15/11/2022"
-          image={ <Calendar /> }
-        />
+        <InputButton label="Return" value="15/11/2022" image={<Calendar />} />
       </Row>
       <Row>
-        <InputButton 
+        <InputButton
           label="Traveler"
           value={traveler}
           onPress={handleTravelerModalPress}
           style={{ marginRight: 10 }}
         />
-        <InputButton 
+        <InputButton
           label="Class"
           value={cabinClass}
           onPress={handleCabinClassModalPress}
         />
       </Row>
       <Button text={"Search"} onPress={handleSearch} />
-      <CabinClass modalRef={bottomCabinClassModalRef} onChangeCabinClass={handleChangeCabinClass} />
-      <Traveler modalRef={bottomTravelerModalRef} onChangeTraveler={setTraveler} />
+      <CabinClass
+        modalRef={bottomCabinClassModalRef}
+        onChangeCabinClass={handleChangeCabinClass}
+      />
+      <Traveler
+        modalRef={bottomTravelerModalRef}
+        onChangeTraveler={setTraveler}
+      />
     </View>
-  )
+  );
 }
 
 const View = styled.View`
   flex: 1;
   display: flex;
   border-radius: 16px;
-  background-color: #FFFFFF;
+  background-color: ${(props) => props.theme.backgroundColorSecondary};
   box-shadow: 0px 5px 10px rgba(89, 27, 27, 0.05);
   padding: 16px 16px 0px 16px;
 `;

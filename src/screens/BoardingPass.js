@@ -1,14 +1,15 @@
-import styled from 'styled-components/native';
-import Button from '../components/Button';
-import Barcode from '../components/svg/Barcode';
-import TextButton from '../components/TextButton';
-import BoardingDetail from '../components/boardingPass/BoardingDetail';
-import bookings from '../mocks/bookings';
-import { useContext, useEffect } from 'react';
-import { FlightContext } from '../contexts/flightContext';
-import { SCREEN } from '../contants/screen';
-import { useNavigation } from '@react-navigation/native';
-import { SeatContext } from '../contexts/seatContext';
+import styled from "styled-components/native";
+import Button from "../components/Button";
+import Barcode from "../components/svg/Barcode";
+import TextButton from "../components/TextButton";
+import BoardingDetail from "../components/boardingPass/BoardingDetail";
+import bookings from "../mocks/bookings";
+import THEME from "../contants/theme";
+import { useContext, useEffect } from "react";
+import { FlightContext } from "../contexts/flightContext";
+import { SCREEN } from "../contants/screen";
+import { useNavigation } from "@react-navigation/native";
+import { SeatContext } from "../contexts/seatContext";
 
 export default function BoardingPass() {
   const { flight } = useContext(FlightContext);
@@ -29,46 +30,44 @@ export default function BoardingPass() {
       cabinClass: flight.cabinClass,
       flightTime: flight.flightTime,
       gate: flight.gate,
-      seat: seat
-    })
-  }, [])
-  
+      seat: seat,
+    });
+  }, []);
+
   return (
     <View>
-      <BoardingDetail flight={flight} seat={seat}/>
+      <BoardingDetail flight={flight} seat={seat} />
       <Row center>
         <Barcode />
       </Row>
       <ButtonArea>
-        <Button 
-          text="Download"
-        />
-        <TextButton 
+        <Button text="Download" />
+        <TextButton
           text="Book another flight"
           onPress={() => navigation.navigate(SCREEN.home)}
           textStyle={{
-            color: "#EC441E",
+            color: THEME.textColorSecondary,
             fontFamily: "Inter_400Regular",
             fontSize: 16,
-            textAlign: "center"
+            textAlign: "center",
           }}
         />
       </ButtonArea>
     </View>
-  )
+  );
 }
 
 const View = styled.View`
   flex: 1;
   padding: 32px;
-  background-color: #F9FBFA;
+  background-color: ${(props) => props.theme.backgroundColor};
   justify-content: center;
 `;
 
 const Row = styled.View`
   display: flex;
   flex-direction: row;
-  justify-content: ${props => props.center ? 'center' : "space-between"};;
+  justify-content: ${(props) => (props.center ? "center" : "space-between")};
   padding: 16px 0 16px 0;
 `;
 

@@ -1,11 +1,12 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import THEME from "../../contants/theme";
 
 function TabBarIcon({ focused, name }) {
   return (
     <MaterialIcons
       name={name}
       size={24}
-      color={focused ? "#FFFFFF" : "#FAD3CA"}
+      color={focused ? THEME.buttonColor : THEME.tabBarColor}
     />
   );
 }

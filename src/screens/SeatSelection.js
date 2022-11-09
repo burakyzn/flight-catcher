@@ -1,7 +1,7 @@
-import styled from 'styled-components/native';
-import AirplaneSeat from '../components/svg/AirplaneSeat';
-import Information from '../components/seatSelection/Information';
-import SeatArea from '../components/seatSelection/SeatArea';
+import styled from "styled-components/native";
+import AirplaneSeat from "../components/svg/AirplaneSeat";
+import Information from "../components/seatSelection/Information";
+import SeatArea from "../components/seatSelection/SeatArea";
 
 export default function SeatSelection() {
   return (
@@ -10,12 +10,12 @@ export default function SeatSelection() {
       <SeatArea />
       <AirplaneSeat />
     </View>
-  )
+  );
 }
 
 const View = styled.View`
   flex: 1;
-  align-items : center;
-  background-color: #F9FBFA;
+  align-items: center;
+  background-color: ${(props) => props.theme.backgroundColor};
   justify-content: space-between;
 `;

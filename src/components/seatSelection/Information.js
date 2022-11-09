@@ -1,22 +1,23 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
+import { SEAT_COLOR } from "../../contants/theme";
 
 export default function Information() {
   return (
     <View>
       <Wrapper>
-        <Circle color="#EC441E"/>
+        <Circle color={SEAT_COLOR.selected} />
         <Text>Selected</Text>
       </Wrapper>
       <Wrapper>
-        <Circle color="#7C7270"/>
+        <Circle color={SEAT_COLOR.extraLegroom} />
         <Text>Extra Legroom</Text>
       </Wrapper>
       <Wrapper>
-        <Circle color="#D9D9D9"/>
+        <Circle color={SEAT_COLOR.reserved} />
         <Text>Reserved</Text>
       </Wrapper>
     </View>
-  )
+  );
 }
 
 const View = styled.View`
@@ -33,11 +34,11 @@ const Circle = styled.View`
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: ${props => props.color}
+  background-color: ${(props) => props.color};
 `;
 
 const Text = styled.Text`
-  color: #555555;
+  color: ${(props) => props.theme.labelColor};
   font-size: 14px;
   margin-left: 5px;
   line-height: 22px;

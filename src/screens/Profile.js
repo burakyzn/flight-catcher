@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 import { Text } from "react-native";
 
 export default function Profile() {
@@ -6,12 +6,12 @@ export default function Profile() {
     <View>
       <Text>Profile Screen</Text>
     </View>
-  )
+  );
 }
 
 const View = styled.View`
   flex: 1;
-  background-color: #fff;
-  align-items : center;
+  background-color: ${(props) => props.theme.backgroundColorSecondary};
+  align-items: center;
   justify-content: center;
 `;

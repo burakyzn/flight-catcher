@@ -65,14 +65,14 @@ const Tab = styled.TouchableOpacity`
   flex: 1;
   justify-content: center;
   align-items: center;
-  border-color: #007aff;
   border-radius: 4px;
 `;
 
 const TabText = styled.Text`
   font-size: 14px;
   font-family: Inter_400Regular;
-  color: ${(props) => (props.active ? "#FFFFFF" : "#999999")};
+  color: ${(props) =>
+    props.active ? props.theme.buttonColor : props.theme.disabled};
 `;
 
 const AnimatedView = styled(Animated.View)`
@@ -81,6 +81,6 @@ const AnimatedView = styled(Animated.View)`
   height: 100%;
   top: 0px;
   left: 0px;
-  background-color: #ec441e;
+  background-color: ${(props) => props.theme.buttonBackgroundColor};
   border-radius: 32px;
 `;

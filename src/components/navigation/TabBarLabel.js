@@ -13,6 +13,7 @@ export default function TabBarLabel({ focused, text }) {
 const Text = styled.Text`
   font-family: Inter_600SemiBold;
   font-size: 10px;
-  color: ${(props) => (props.focused ? "#FFFFFF" : "#FAD3CA")};
+  color: ${(props) =>
+    props.focused ? props.theme.buttonColor : props.theme.tabBarColor};
   ${(props) => props.platform === supportedOS.android && "bottom: 10px"};
 `;

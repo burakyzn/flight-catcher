@@ -1,8 +1,8 @@
-import styled from 'styled-components/native';
-import FlightTypeTabs from '../components/booking/FlightTypeTabs';
-import HotOffers from '../components/offer/HotOffers';
-import SearchFlight from '../components/booking/SearchFlight';
-import { useState } from 'react';
+import styled from "styled-components/native";
+import FlightTypeTabs from "../components/booking/FlightTypeTabs";
+import HotOffers from "../components/offer/HotOffers";
+import SearchFlight from "../components/booking/SearchFlight";
+import { useState } from "react";
 
 export default function Home() {
   const [selectedType, setSelectedType] = useState(0);
@@ -23,14 +23,14 @@ export default function Home() {
         <HotOffers />
       </HotOfferSection>
     </Container>
-  )
+  );
 }
 
 const Container = styled.View`
   flex: 1;
   display: flex;
-  background-color: #F9FBFA;
-  align-items : center;
+  background-color: ${(props) => props.theme.backgroundColor};
+  align-items: center;
   justify-content: center;
 `;
 
@@ -42,12 +42,12 @@ const HotOfferSection = styled.View`
 const BookingSection = styled.View`
   flex: 5;
   width: 100%;
-  align-items : center;
+  align-items: center;
   justify-content: center;
 `;
 
 const FlightTypeSection = styled.View`
-  flex:1;
+  flex: 1;
   width: 100%;
   padding: 0 32px 0 32px;
   margin-top: 16px;

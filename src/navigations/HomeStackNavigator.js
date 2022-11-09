@@ -1,17 +1,18 @@
 import Home from "../screens/Home";
 import SearchResult from "../screens/SearchResult";
-import SeatSelection from '../screens/SeatSelection';
-import BackButton from "../components/navigation/BackButton"; 
+import SeatSelection from "../screens/SeatSelection";
+import BackButton from "../components/navigation/BackButton";
 import HeaderTitle from "../components/navigation/HeaderTitle";
 import FlightDetail from "../screens/FlightDetail";
-import Payment from '../screens/Payment';
-import BoardingPass from '../screens/BoardingPass';
-import supportedOS from '../contants/supportedOS';
+import Payment from "../screens/Payment";
+import BoardingPass from "../screens/BoardingPass";
+import supportedOS from "../contants/supportedOS";
 import FlightProvider from "../contexts/flightContext";
 import SeatProvider from "../contexts/seatContext";
-import { SCREEN, SCREEN_TITLE } from '../contants/screen';
-import { StyleSheet, Platform } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import THEME from "../contants/theme";
+import { SCREEN, SCREEN_TITLE } from "../contants/screen";
+import { StyleSheet, Platform } from "react-native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const HomeStack = createNativeStackNavigator();
 
@@ -19,19 +20,19 @@ export default function HomeStackNavigator() {
   return (
     <FlightProvider>
       <SeatProvider>
-        <HomeStack.Navigator screenOptions={ 
-          { 
+        <HomeStack.Navigator
+          screenOptions={{
             tabBarStyle: [styles.tabBarStyle],
-          }
-        }>
+          }}
+        >
           <HomeStack.Screen
             name={SCREEN.home}
             component={Home}
             options={() => ({
               headerShadowVisible: false,
               headerStyle: styles.header,
-              headerTitleAlign : 'center',
-              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.home}/>,
+              headerTitleAlign: "center",
+              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.home} />,
             })}
           />
           <HomeStack.Screen
@@ -40,10 +41,12 @@ export default function HomeStackNavigator() {
             options={() => ({
               headerShadowVisible: false,
               headerStyle: styles.header,
-              headerTitleAlign : 'center',
+              headerTitleAlign: "center",
               headerBackVisible: false,
               headerLeft: () => <BackButton />,
-              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.searchFlight}/>,
+              headerTitle: () => (
+                <HeaderTitle title={SCREEN_TITLE.searchFlight} />
+              ),
             })}
           />
           <HomeStack.Screen
@@ -52,10 +55,12 @@ export default function HomeStackNavigator() {
             options={() => ({
               headerShadowVisible: false,
               headerStyle: styles.header,
-              headerTitleAlign : 'center',
+              headerTitleAlign: "center",
               headerBackVisible: false,
               headerLeft: () => <BackButton />,
-              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.flightDetail}/>,
+              headerTitle: () => (
+                <HeaderTitle title={SCREEN_TITLE.flightDetail} />
+              ),
             })}
           />
           <HomeStack.Screen
@@ -64,10 +69,12 @@ export default function HomeStackNavigator() {
             options={() => ({
               headerShadowVisible: false,
               headerStyle: styles.header,
-              headerTitleAlign : 'center',
+              headerTitleAlign: "center",
               headerBackVisible: false,
               headerLeft: () => <BackButton />,
-              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.seatSelection}/>,
+              headerTitle: () => (
+                <HeaderTitle title={SCREEN_TITLE.seatSelection} />
+              ),
             })}
           />
           <HomeStack.Screen
@@ -76,10 +83,10 @@ export default function HomeStackNavigator() {
             options={() => ({
               headerShadowVisible: false,
               headerStyle: styles.header,
-              headerTitleAlign : 'center',
+              headerTitleAlign: "center",
               headerBackVisible: false,
               headerLeft: () => <BackButton />,
-              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.payment}/>,
+              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.payment} />,
             })}
           />
           <HomeStack.Screen
@@ -88,9 +95,11 @@ export default function HomeStackNavigator() {
             options={() => ({
               headerShadowVisible: false,
               headerStyle: styles.header,
-              headerTitleAlign : 'center',
+              headerTitleAlign: "center",
               headerBackVisible: false,
-              headerTitle: () => <HeaderTitle title={SCREEN_TITLE.boardingPass}/>,
+              headerTitle: () => (
+                <HeaderTitle title={SCREEN_TITLE.boardingPass} />
+              ),
             })}
           />
         </HomeStack.Navigator>
@@ -101,12 +110,12 @@ export default function HomeStackNavigator() {
 
 const styles = StyleSheet.create({
   tabBarStyle: {
-    backgroundColor: '#EC441E',
+    backgroundColor: THEME.buttonBackgroundColor,
     elevation: 0,
     height: Platform.OS === supportedOS.android ? 65 : 80,
     borderWidth: 0,
   },
   header: {
-    backgroundColor: '#F9FBFA'
-  }
+    backgroundColor: THEME.backgroundColor,
+  },
 });

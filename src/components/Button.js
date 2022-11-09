@@ -20,7 +20,9 @@ const ClickableView = styled.TouchableOpacity`
 const Wrapper = styled.View`
   flex: 1;
   background-color: ${(props) =>
-    props.backgroundColor ? props.backgroundColor : "#EC441E"};
+    props.backgroundColor
+      ? props.backgroundColor
+      : props.theme.buttonBackgroundColor};
   border-radius: 10px;
   align-items: center;
   justify-content: center;
@@ -28,7 +30,7 @@ const Wrapper = styled.View`
 `;
 
 const Text = styled.Text`
-  color: ${(props) => (props.color ? props.color : "#FFFFFF")};
+  color: ${(props) => (props.color ? props.color : props.theme.buttonColor)};
   font-size: 18px;
   line-height: 24px;
   text-align: center;

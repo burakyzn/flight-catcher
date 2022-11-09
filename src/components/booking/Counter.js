@@ -53,7 +53,8 @@ const Number = styled.View`
 const Text = styled.Text`
   font-size: 18px;
   font-family: Inter_500Medium;
-  color: ${(props) => (props.disabled ? "#808080" : "#000000")};
+  color: ${(props) =>
+    props.disabled ? props.theme.disabled : props.theme.labelColorSecondary};
 `;
 
 const Button = styled.TouchableOpacity`
@@ -66,5 +67,7 @@ const Button = styled.TouchableOpacity`
   border-radius: 50px;
   ${(props) =>
     props.disabled &&
-    `border: 1px solid ${props.disabled ? "808080" : "#000000"}`}
+    `border: 1px solid ${
+      props.disabled ? props.theme.disabled : props.theme.labelColorSecondary
+    }`}
 `;

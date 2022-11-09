@@ -1,21 +1,14 @@
-import styled from 'styled-components/native';
-import { useImperativeHandle, forwardRef } from 'react';
+import styled from "styled-components/native";
+import { useImperativeHandle, forwardRef } from "react";
 
-function Input(props, ref){
-  const {
-    type,
-    value,
-    label,
-    onChange,
-    placeholder,
-    maxLength,
-    validation
-  } = props;
+function Input(props, ref) {
+  const { type, value, label, onChange, placeholder, maxLength, validation } =
+    props;
 
   useImperativeHandle(ref, () => ({
     isEmpty: () => value.trim(),
-    validate: () => validation()
-  }))
+    validate: () => validation(),
+  }));
 
   return (
     <View>
@@ -27,8 +20,8 @@ function Input(props, ref){
         keyboardType={type}
         maxLength={maxLength}
       />
-    </View> 
-  )
+    </View>
+  );
 }
 
 export default forwardRef(Input);
@@ -42,7 +35,7 @@ const Label = styled.Text`
   width: 100%;
   font-size: 14px;
   line-height: 17px;
-  color: #191919;
+  color: ${(props) => props.theme.textColor};
   font-family: Inter_500Medium;
 `;
 
@@ -50,7 +43,6 @@ const TextInput = styled.TextInput`
   height: 40px;
   font-size: 16px;
   border-bottom-width: 0.75px;
-  border-bottom-color: #E6E8E7;
+  border-bottom-color: ${(props) => props.theme.buttonBorder};
   font-family: Inter_300Light;
 `;
-

@@ -13,6 +13,7 @@ import {
   Inter_600SemiBold,
 } from "@expo-google-fonts/inter";
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import ThemeProvider from "./src/ThemeProvider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -48,13 +49,15 @@ export default function App() {
 
   return (
     appIsReady && (
-      <SafeAreaView style={styles.container} onLayout={onLayout}>
-        <GestureHandlerRootView style={styles.container}>
-          <BottomSheetModalProvider>
-            <RootNavigator />
-          </BottomSheetModalProvider>
-        </GestureHandlerRootView>
-      </SafeAreaView>
+      <ThemeProvider>
+        <SafeAreaView style={styles.container} onLayout={onLayout}>
+          <GestureHandlerRootView style={styles.container}>
+            <BottomSheetModalProvider>
+              <RootNavigator />
+            </BottomSheetModalProvider>
+          </GestureHandlerRootView>
+        </SafeAreaView>
+      </ThemeProvider>
     )
   );
 }
@@ -62,7 +65,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
     justifyContent: "center",
   },
 });
