@@ -5,10 +5,10 @@ import TabBarLabel from "../components/navigation/TabBarLabel";
 import TabBarIcon from "../components/navigation/TabBarIcon";
 import HeaderTitle from "../components/navigation/HeaderTitle";
 import BackButton from "../components/navigation/BackButton";
-import supportedOS from "../contants/supportedOS";
+import supportedOS from "../constants/supportedOS";
 import HomeStackNavigator from "./HomeStackNavigator";
-import THEME from "../contants/theme";
-import { SCREEN, SCREEN_TITLE, SCREEN_ICON, STACKS } from "../contants/screen";
+import THEME from "../constants/theme";
+import { SCREEN, SCREEN_TITLE, SCREEN_ICON, STACKS } from "../constants/screen";
 import { StyleSheet, Platform } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 

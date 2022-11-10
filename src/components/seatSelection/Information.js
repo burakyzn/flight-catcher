@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { SEAT_COLOR } from "../../contants/theme";
+import { SEAT_COLOR } from "../../constants/theme";
 
 export default function Information() {
   return (

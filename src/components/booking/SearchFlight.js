@@ -7,7 +7,7 @@ import CabinClass from "./bottomSheets/CabinClass";
 import Traveler from "./bottomSheets/Traveler";
 import Button from "../Button";
 import { useCallback, useRef, useState } from "react";
-import { SCREEN } from "../../contants/screen";
+import { SCREEN } from "../../constants/screen";
 import { useNavigation } from "@react-navigation/native";
 
 export default function SearchFlight(props) {

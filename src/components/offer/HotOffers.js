@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import OfferCarousel from "./OfferCarousel";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { SCREEN } from "../../contants/screen";
+import { SCREEN } from "../../constants/screen";
 
 export default function HotOffers() {
   const navigation = useNavigation();

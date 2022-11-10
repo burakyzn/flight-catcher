@@ -4,7 +4,7 @@ import AirplaneFlight from "../svg/AirplaneFlight";
 import { useContext } from "react";
 import { FlightContext } from "../../contexts/flightContext";
 import { useNavigation } from "@react-navigation/native";
-import { SCREEN } from "../../contants/screen";
+import { SCREEN } from "../../constants/screen";
 
 export default function FlightCard(params) {
   const { flight } = params;

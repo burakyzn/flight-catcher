@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 import Input from "../Input";
 import Button from "../Button";
-import THEME from "../../contants/theme";
-import { SCREEN } from "../../contants/screen";
+import THEME from "../../constants/theme";
+import { SCREEN } from "../../constants/screen";
 import { useState, useContext, useRef } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AlertContext } from "../../contexts/alertContext";

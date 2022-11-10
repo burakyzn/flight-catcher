@@ -1,5 +1,5 @@
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
-import THEME from "../../contants/theme";
+import THEME from "../../constants/theme";
 
 function TabBarIcon({ focused, name }) {
   return (

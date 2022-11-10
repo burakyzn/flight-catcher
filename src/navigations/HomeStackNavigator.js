@@ -6,11 +6,11 @@ import HeaderTitle from "../components/navigation/HeaderTitle";
 import FlightDetail from "../screens/FlightDetail";
 import Payment from "../screens/Payment";
 import BoardingPass from "../screens/BoardingPass";
-import supportedOS from "../contants/supportedOS";
+import supportedOS from "../constants/supportedOS";
 import FlightProvider from "../contexts/flightContext";
 import SeatProvider from "../contexts/seatContext";
-import THEME from "../contants/theme";
-import { SCREEN, SCREEN_TITLE } from "../contants/screen";
+import THEME from "../constants/theme";
+import { SCREEN, SCREEN_TITLE } from "../constants/screen";
 import { StyleSheet, Platform } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 

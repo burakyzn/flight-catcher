@@ -1,8 +1,8 @@
 import styled from "styled-components/native";
 import Button from "../components/Button";
 import FlightDetailCard from "../components/flightDetail/FlightDetailCard";
-import THEME from "../contants/theme";
-import { SCREEN } from "../contants/screen";
+import THEME from "../constants/theme";
+import { SCREEN } from "../constants/screen";
 import { useNavigation } from "@react-navigation/native";
 
 export default function FlightDetail() {

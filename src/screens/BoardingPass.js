@@ -4,10 +4,10 @@ import Barcode from "../components/svg/Barcode";
 import TextButton from "../components/TextButton";
 import BoardingDetail from "../components/boardingPass/BoardingDetail";
 import bookings from "../mocks/bookings";
-import THEME from "../contants/theme";
+import THEME from "../constants/theme";
 import { useContext, useEffect } from "react";
 import { FlightContext } from "../contexts/flightContext";
-import { SCREEN } from "../contants/screen";
+import { SCREEN } from "../constants/screen";
 import { useNavigation } from "@react-navigation/native";
 import { SeatContext } from "../contexts/seatContext";
 

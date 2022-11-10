@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import supportedOS from "../../contants/supportedOS";
+import supportedOS from "../../constants/supportedOS";
 import { Platform } from "react-native";
 
 export default function TabBarLabel({ focused, text }) {
