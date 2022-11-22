@@ -1,8 +1,8 @@
-import Button from "../../components/Button";
-import FlightDetailCard from "../../components/flightDetail/FlightDetailCard";
-import THEME from "../../constants/theme";
-import FullScreenView from "../../components/FullScreenView";
-import { SCREEN } from "../../constants/screen";
+import Button from "components/Button";
+import FlightDetailCard from "components/flightDetail/FlightDetailCard";
+import THEME from "constants/theme";
+import FullScreenView from "components/FullScreenView";
+import { SCREEN } from "constants/screen";
 import { useNavigation } from "@react-navigation/native";
 import { Card, Row, Column } from "./styled";
 

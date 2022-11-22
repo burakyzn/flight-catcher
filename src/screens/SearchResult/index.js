@@ -1,6 +1,6 @@
-import searchResult from "../../mocks/searchResult";
-import FlightCard from "../../components/searchResult/FlightCard";
-import FullScreenView from "../../components/FullScreenView";
+import searchResult from "mocks/searchResult";
+import FlightCard from "components/searchResult/FlightCard";
+import FullScreenView from "components/FullScreenView";
 import { StyledFlatList } from "./styled";
 
 export default function SearchResult() {

@@ -1,5 +1,5 @@
-import offers from "../../mocks/offers";
-import OfferCard from "../../components/offer/OfferCard";
+import offers from "mocks/offers";
+import OfferCard from "components/offer/OfferCard";
 import { View, FlatList } from "react-native";
 import { ClickableCard } from "./styled";
 

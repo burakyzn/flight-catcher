@@ -1,7 +1,7 @@
-import FlightTypeTabs from "../../components/booking/FlightTypeTabs";
-import HotOffers from "../../components/offer/HotOffers";
-import SearchFlight from "../../components/booking/SearchFlight";
-import FullScreenView from "../../components/FullScreenView";
+import FlightTypeTabs from "components/booking/FlightTypeTabs";
+import HotOffers from "components/offer/HotOffers";
+import SearchFlight from "components/booking/SearchFlight";
+import FullScreenView from "components/FullScreenView";
 import { useState } from "react";
 import {
   BookingSection,

@@ -1,6 +1,6 @@
-import BoardingDetail from "../../components/boardingPass/BoardingDetail";
-import bookings from "../../mocks/bookings";
-import Button from "../../components/Button";
+import BoardingDetail from "components/boardingPass/BoardingDetail";
+import bookings from "mocks/bookings";
+import Button from "components/Button";
 import { FlatList } from "react-native";
 import { Container, Wrapper, ButtonArea } from "./styled";
 

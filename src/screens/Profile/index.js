@@ -1,4 +1,4 @@
-import FullScreenView from "../../components/FullScreenView";
+import FullScreenView from "components/FullScreenView";
 import { Text } from "react-native";
 
 export default function Profile() {

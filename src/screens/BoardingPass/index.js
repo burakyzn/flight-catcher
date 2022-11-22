@@ -1,14 +1,14 @@
-import Button from "../../components/Button";
-import Barcode from "../../components/svg/Barcode";
-import TextButton from "../../components/TextButton";
-import BoardingDetail from "../../components/boardingPass/BoardingDetail";
-import bookings from "../../mocks/bookings";
-import THEME from "../../constants/theme";
+import Button from "components/Button";
+import Barcode from "components/svg/Barcode";
+import TextButton from "components/TextButton";
+import BoardingDetail from "components/boardingPass/BoardingDetail";
+import bookings from "mocks/bookings";
+import THEME from "constants/theme";
 import { useContext, useEffect } from "react";
-import { FlightContext } from "../../contexts/flightContext";
-import { SCREEN } from "../../constants/screen";
+import { FlightContext } from "contexts/flightContext";
+import { SCREEN } from "constants/screen";
 import { useNavigation } from "@react-navigation/native";
-import { SeatContext } from "../../contexts/seatContext";
+import { SeatContext } from "contexts/seatContext";
 import { CustomFullScreenView, Row, ButtonArea } from "./styled";
 
 export default function BoardingPass() {
