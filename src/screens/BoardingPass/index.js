@@ -1,15 +1,15 @@
-import styled from "styled-components/native";
-import Button from "../components/Button";
-import Barcode from "../components/svg/Barcode";
-import TextButton from "../components/TextButton";
-import BoardingDetail from "../components/boardingPass/BoardingDetail";
-import bookings from "../mocks/bookings";
-import THEME from "../constants/theme";
+import Button from "../../components/Button";
+import Barcode from "../../components/svg/Barcode";
+import TextButton from "../../components/TextButton";
+import BoardingDetail from "../../components/boardingPass/BoardingDetail";
+import bookings from "../../mocks/bookings";
+import THEME from "../../constants/theme";
 import { useContext, useEffect } from "react";
-import { FlightContext } from "../contexts/flightContext";
-import { SCREEN } from "../constants/screen";
+import { FlightContext } from "../../contexts/flightContext";
+import { SCREEN } from "../../constants/screen";
 import { useNavigation } from "@react-navigation/native";
-import { SeatContext } from "../contexts/seatContext";
+import { SeatContext } from "../../contexts/seatContext";
+import { CustomFullScreenView, Row, ButtonArea } from "./styled";
 
 export default function BoardingPass() {
   const { flight } = useContext(FlightContext);
@@ -35,7 +35,7 @@ export default function BoardingPass() {
   }, []);
 
   return (
-    <View>
+    <CustomFullScreenView>
       <BoardingDetail flight={flight} seat={seat} />
       <Row center>
         <Barcode />
@@ -53,26 +53,6 @@ export default function BoardingPass() {
           }}
         />
       </ButtonArea>
-    </View>
+    </CustomFullScreenView>
   );
 }
-
-const View = styled.View`
-  flex: 1;
-  padding: 32px;
-  background-color: ${(props) => props.theme.backgroundColor};
-  justify-content: center;
-`;
-
-const Row = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: ${(props) => (props.center ? "center" : "space-between")};
-  padding: 16px 0 16px 0;
-`;
-
-const ButtonArea = styled.View`
-  height: 100px;
-  width: 100%;
-  margin-top: 20px;
-`;
