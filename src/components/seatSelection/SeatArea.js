@@ -1,13 +1,13 @@
 import styled from "styled-components/native";
-import seats from "../../mocks/seats";
-import Button from "../Button";
-import Seat from "../seatSelection/Seat";
-import THEME, { SEAT_COLOR } from "../../constants/theme";
-import { SCREEN } from "../../constants/screen";
+import seats from "mocks/seats";
+import { PrimaryButton } from "components/Button";
+import Seat from "components/seatSelection/Seat";
+import THEME, { SEAT_COLOR } from "constants/theme";
+import { SCREEN } from "constants/screen";
 import { useState, useContext } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { AlertContext } from "../../contexts/alertContext";
-import { SeatContext } from "../../contexts/seatContext";
+import { AlertContext } from "contexts/alertContext";
+import { SeatContext } from "contexts/seatContext";
 
 export default function SeatArea() {
   const [selected, setSelected] = useState(null);
@@ -126,7 +126,7 @@ export default function SeatArea() {
           </Column>
         </Side>
       </Row>
-      <Button text="Confirm" onPress={handleConfirm} />
+      <PrimaryButton text="Confirm" onPress={handleConfirm} />
     </View>
   );
 }

@@ -1,10 +1,9 @@
-import Button from "components/Button";
 import FlightDetailCard from "components/flightDetail/FlightDetailCard";
-import THEME from "constants/theme";
 import FullScreenView from "components/FullScreenView";
 import { SCREEN } from "constants/screen";
 import { useNavigation } from "@react-navigation/native";
 import { Card, Row, Column } from "./styled";
+import { PrimaryButton, SecondaryButton } from "components/Button";
 
 export default function FlightDetail() {
   const navigation = useNavigation();
@@ -16,15 +15,10 @@ export default function FlightDetail() {
       </Card>
       <Row>
         <Column>
-          <Button
-            text="Cancel"
-            backgroundColor={THEME.backgroundColorSecondary}
-            color={THEME.textColorSecondary}
-            onPress={() => navigation.goBack()}
-          />
+          <SecondaryButton text="Cancel" onPress={() => navigation.goBack()} />
         </Column>
         <Column>
-          <Button
+          <PrimaryButton
             onPress={() => navigation.navigate(SCREEN.seatSelection)}
             text="Confirm"
           />

@@ -1,13 +1,13 @@
 import styled from "styled-components/native";
-import InputButton from "../InputButton";
-import AirplaneTakeOff from "../svg/AirplaneTakeOff";
-import AirplaneLanding from "../svg/AirplaneLanding";
-import Calendar from "../svg/Calendar";
+import InputButton from "components/InputButton";
+import AirplaneTakeOff from "components//svg/AirplaneTakeOff";
+import AirplaneLanding from "components//svg/AirplaneLanding";
+import Calendar from "components/svg/Calendar";
 import CabinClass from "./bottomSheets/CabinClass";
 import Traveler from "./bottomSheets/Traveler";
-import Button from "../Button";
+import { PrimaryButton } from "components//Button";
 import { useCallback, useRef, useState } from "react";
-import { SCREEN } from "../../constants/screen";
+import { SCREEN } from "constants/screen";
 import { useNavigation } from "@react-navigation/native";
 
 export default function SearchFlight(props) {
@@ -40,28 +40,22 @@ export default function SearchFlight(props) {
 
   return (
     <View>
-      <InputButton label="From" value="Istanbul" image={<AirplaneTakeOff />} />
+      <InputButton label="From" value="Istanbul" icon={<AirplaneTakeOff />} />
       <InputButton
         label="To"
         value="Berlin"
-        image={<AirplaneLanding />}
+        icon={<AirplaneLanding />}
         disabled={isDisabledReturnFlight}
       />
       <Row>
-        <InputButton
-          label="Departure"
-          value="15/10/2022"
-          image={<Calendar />}
-          style={{ marginRight: 10 }}
-        />
-        <InputButton label="Return" value="15/11/2022" image={<Calendar />} />
+        <InputButton label="Departure" value="15/10/2022" icon={<Calendar />} />
+        <InputButton label="Return" value="15/11/2022" icon={<Calendar />} />
       </Row>
       <Row>
         <InputButton
           label="Traveler"
           value={traveler}
           onPress={handleTravelerModalPress}
-          style={{ marginRight: 10 }}
         />
         <InputButton
           label="Class"
@@ -69,7 +63,7 @@ export default function SearchFlight(props) {
           onPress={handleCabinClassModalPress}
         />
       </Row>
-      <Button text={"Search"} onPress={handleSearch} />
+      <PrimaryButton text={"Search"} onPress={handleSearch} />
       <CabinClass
         modalRef={bottomCabinClassModalRef}
         onChangeCabinClass={handleChangeCabinClass}

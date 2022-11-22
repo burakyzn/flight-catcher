@@ -1,9 +1,9 @@
-import Clock from "../svg/Clock";
-import Calendar from "../svg/Calendar";
+import Clock from "components//svg/Clock";
+import Calendar from "components//svg/Calendar";
 import styled from "styled-components/native";
-import AirplaneFlight from "../svg/AirplaneFlight";
-import InputButton from "../InputButton";
-import { FlightContext } from "../../contexts/flightContext";
+import AirplaneFlight from "components//svg/AirplaneFlight";
+import InputButton from "components//InputButton";
+import { FlightContext } from "contexts/flightContext";
 import { useContext } from "react";
 
 export default function FlightDetailCard() {
@@ -35,14 +35,13 @@ export default function FlightDetailCard() {
           <InputButton
             label="Date"
             value={flight.date}
-            image={<Calendar />}
-            style={{ marginRight: 10 }}
+            icon={<Calendar />}
             disabled
           />
           <InputButton
             label="Time"
             value={flight.flightTime}
-            image={<Clock />}
+            icon={<Clock />}
             disabled
           />
         </Row>

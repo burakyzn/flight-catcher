@@ -1,15 +1,14 @@
-import Button from "components/Button";
 import Barcode from "components/svg/Barcode";
 import TextButton from "components/TextButton";
 import BoardingDetail from "components/boardingPass/BoardingDetail";
 import bookings from "mocks/bookings";
-import THEME from "constants/theme";
 import { useContext, useEffect } from "react";
 import { FlightContext } from "contexts/flightContext";
 import { SCREEN } from "constants/screen";
 import { useNavigation } from "@react-navigation/native";
 import { SeatContext } from "contexts/seatContext";
 import { CustomFullScreenView, Row, ButtonArea } from "./styled";
+import { PrimaryButton } from "components/Button";
 
 export default function BoardingPass() {
   const { flight } = useContext(FlightContext);
@@ -41,16 +40,10 @@ export default function BoardingPass() {
         <Barcode />
       </Row>
       <ButtonArea>
-        <Button text="Download" />
+        <PrimaryButton text="Download" />
         <TextButton
           text="Book another flight"
           onPress={() => navigation.navigate(SCREEN.home)}
-          textStyle={{
-            color: THEME.textColorSecondary,
-            fontFamily: "Inter_400Regular",
-            fontSize: 16,
-            textAlign: "center",
-          }}
         />
       </ButtonArea>
     </CustomFullScreenView>

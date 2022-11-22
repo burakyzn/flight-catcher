@@ -1,11 +1,10 @@
 import styled from "styled-components/native";
-import Input from "../Input";
-import Button from "../Button";
-import THEME from "../../constants/theme";
-import { SCREEN } from "../../constants/screen";
+import TextInput from "components//TextInput";
+import { PrimaryButton, SecondaryButton } from "components/Button";
+import { SCREEN } from "constants/screen";
 import { useState, useContext, useRef } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { AlertContext } from "../../contexts/alertContext";
+import { AlertContext } from "contexts/alertContext";
 
 export default function CreditCardEntry() {
   const NUMBER_REGEX = /^[0-9\s]+$/;
@@ -120,39 +119,39 @@ export default function CreditCardEntry() {
   return (
     <View>
       <CreditCard>
-        <Input
+        <TextInput
           label="Card Number"
-          type="numeric"
+          keyboardType="numeric"
           value={cardNumber}
-          onChange={handleChangeCardNumber}
+          onChangeText={handleChangeCardNumber}
           placeholder="5400 0000 0000 0000"
           maxLength={19}
           validation={cardNumberValidation}
           ref={cardNumberRef}
         />
-        <Input
+        <TextInput
           label="Card Holder Name"
           value={holderName}
-          onChange={handleChangeHolderName}
+          onChangeText={handleChangeHolderName}
           placeholder="BURAK YAZAN"
           maxLength={30}
           validation={holderNameValidation}
           ref={holderNameRef}
         />
-        <Input
+        <TextInput
           label="CVV"
-          type="numeric"
+          keyboardType="numeric"
           value={CVV}
-          onChange={handleChangeCVV}
+          onChangeText={handleChangeCVV}
           placeholder="000"
           maxLength={3}
           validation={CVVValidation}
           ref={CVVRef}
         />
-        <Input
+        <TextInput
           label="Expiry Date"
           value={expiryDate}
-          onChange={handleChangeExpiryDate}
+          onChangeText={handleChangeExpiryDate}
           placeholder="02/28"
           maxLength={5}
           validation={expiryDateValidation}
@@ -160,13 +159,8 @@ export default function CreditCardEntry() {
         />
       </CreditCard>
       <ButtonArea>
-        <Button text="Confirm" onPress={handleConfirmButton} />
-        <Button
-          text="Cancel"
-          backgroundColor={THEME.backgroundColorSecondary}
-          color={THEME.textColorSecondary}
-          onPress={handleCancelButton}
-        />
+        <PrimaryButton text="Confirm" onPress={handleConfirmButton} />
+        <SecondaryButton text="Cancel" onPress={handleCancelButton} />
       </ButtonArea>
     </View>
   );

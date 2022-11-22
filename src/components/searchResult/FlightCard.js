@@ -1,10 +1,10 @@
 import styled from "styled-components/native";
-import Button from "../Button";
-import AirplaneFlight from "../svg/AirplaneFlight";
+import { PrimaryButton } from "components/Button";
+import AirplaneFlight from "components/svg/AirplaneFlight";
 import { useContext } from "react";
-import { FlightContext } from "../../contexts/flightContext";
+import { FlightContext } from "contexts/flightContext";
 import { useNavigation } from "@react-navigation/native";
-import { SCREEN } from "../../constants/screen";
+import { SCREEN } from "constants/screen";
 
 export default function FlightCard(params) {
   const { flight } = params;
@@ -46,7 +46,7 @@ export default function FlightCard(params) {
             <Price>From {flight.price}</Price>
           </Column>
         </Row>
-        <Button text="Check" onPress={handleCheckButton} />
+        <PrimaryButton text="Check" onPress={handleCheckButton} />
       </Wrapper>
     </View>
   );

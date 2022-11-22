@@ -1,25 +1,9 @@
 import styled from "styled-components/native";
 
-export default function InputButton(props) {
-  const { label, value, image, onPress, style, disabled } = props;
-
-  return (
-    <View onPress={onPress} style={style} disabled={disabled}>
-      <Label disabled={disabled}>{label}</Label>
-      <InputArea>
-        {image}
-        <Input disabled={disabled} numberOfLines={1} image={image}>
-          {value ? value : `${label} Date`}
-        </Input>
-      </InputArea>
-    </View>
-  );
-}
-
-const View = styled.TouchableOpacity`
+const Container = styled.TouchableOpacity`
   flex: 1.5;
   align-items: flex-start;
-  margin-top: 15px;
+  margin: 15px 5px 0px 5px;
 `;
 
 const Label = styled.Text`
@@ -36,7 +20,7 @@ const Label = styled.Text`
     props.disabled ? props.theme.disabled : props.theme.labelColorSecondary};
 `;
 
-const InputArea = styled.View`
+const Wrapper = styled.View`
   z-index: 0;
   width: 100%;
   flex-grow: 0;
@@ -46,7 +30,7 @@ const InputArea = styled.View`
   border: 1px solid ${(props) => props.theme.buttonBorder};
 `;
 
-const Input = styled.Text`
+const StyledInput = styled.Text`
   font-size: 16px;
   line-height: 24px;
   color: ${(props) => props.theme.textColor};
@@ -55,5 +39,10 @@ const Input = styled.Text`
   width: 100%;
   color: ${(props) =>
     props.disabled ? props.theme.disabled : props.theme.labelColorSecondary};
-  ${(props) => props.image && "margin-left: 12px"};
 `;
+
+const Icon = styled.View`
+  margin-right: 12px;
+`;
+
+export { Container, Label, Wrapper, StyledInput, Icon };
