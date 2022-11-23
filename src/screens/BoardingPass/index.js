@@ -1,4 +1,4 @@
-import Barcode from "components/svg/Barcode";
+import Barcode from "svg/Barcode";
 import TextButton from "components/TextButton";
 import BoardingDetail from "components/boardingPass/BoardingDetail";
 import bookings from "mocks/bookings";

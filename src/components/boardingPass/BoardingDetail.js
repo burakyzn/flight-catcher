@@ -1,7 +1,7 @@
-import Clock from "components/svg/Clock";
-import Calendar from "components/svg/Calendar";
+import Clock from "svg/Clock";
+import Calendar from "svg/Calendar";
 import styled from "styled-components/native";
-import AirplaneFlight from "components/svg/AirplaneFlight";
+import AirplaneFlight from "svg/AirplaneFlight";
 import InputButton from "components/InputButton";
 
 export default function BoardingDetail(props) {

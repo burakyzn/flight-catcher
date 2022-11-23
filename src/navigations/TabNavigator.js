@@ -1,15 +1,14 @@
-import Booking from "../screens/Booking";
-import Offer from "../screens/Offer";
-import Profile from "../screens/Profile";
-import TabBarLabel from "../components/navigation/TabBarLabel";
-import TabBarIcon from "../components/navigation/TabBarIcon";
-import HeaderTitle from "../components/navigation/HeaderTitle";
-import BackButton from "../components/navigation/BackButton";
-import supportedOS from "../constants/supportedOS";
+import Booking from "screens/Booking";
+import Offer from "screens/Offer";
+import Profile from "screens/Profile";
+import TabBarLabel from "components/TabBarLabel";
+import TabBarIcon from "components/TabBarIcon";
+import HeaderTitle from "components/HeaderTitle";
+import BackButton from "components/BackButton";
 import HomeStackNavigator from "./HomeStackNavigator";
-import THEME from "../constants/theme";
-import { SCREEN, SCREEN_TITLE, SCREEN_ICON, STACKS } from "../constants/screen";
-import { StyleSheet, Platform } from "react-native";
+import THEME from "constants/theme";
+import { StyleSheet } from "react-native";
+import { SCREEN, SCREEN_TITLE, SCREEN_ICON, STACKS } from "constants/screen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 const Tab = createBottomTabNavigator();
@@ -93,7 +92,7 @@ const styles = StyleSheet.create({
   tabBarStyle: {
     backgroundColor: THEME.buttonBackgroundColor,
     elevation: 0,
-    height: Platform.OS === supportedOS.android ? 65 : 80,
+    height: 80,
     borderWidth: 0,
   },
   header: {

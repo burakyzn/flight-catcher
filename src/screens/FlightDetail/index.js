@@ -1,4 +1,4 @@
-import FlightDetailCard from "components/flightDetail/FlightDetailCard";
+import FlightDetailCard from "./FlightDetailCard";
 import FullScreenView from "components/FullScreenView";
 import { SCREEN } from "constants/screen";
 import { useNavigation } from "@react-navigation/native";

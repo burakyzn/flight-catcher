@@ -14,6 +14,7 @@ module.exports = function (api) {
             mocks: "./src/mocks",
             navigations: "./src/navigations",
             screens: "./src/screens",
+            svg: "./src/svg",
           },
           extensions: [".js", ".jsx"],
         },

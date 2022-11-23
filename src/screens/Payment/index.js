@@ -1,6 +1,6 @@
-import FlightSummary from "components/payment/FlightSummary";
-import CreditCardEntry from "components/payment/CreditCardEntry";
 import FullScreenView from "components/FullScreenView";
+import FlightSummary from "./FlightSummary";
+import CreditCardEntry from "./CreditCardEntry";
 
 export default function Payment() {
   return (

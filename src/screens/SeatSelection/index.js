@@ -1,6 +1,6 @@
-import AirplaneSeat from "components/svg/AirplaneSeat";
-import Information from "components/seatSelection/Information";
-import SeatArea from "components/seatSelection/SeatArea";
+import AirplaneSeat from "svg/AirplaneSeat";
+import Information from "./Information";
+import SeatArea from "./SeatArea";
 import { CustomFullScreenView } from "./styled";
 
 export default function SeatSelection() {

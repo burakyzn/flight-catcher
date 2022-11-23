@@ -1,12 +1,11 @@
 import Home from "../screens/Home";
 import SearchResult from "../screens/SearchResult";
 import SeatSelection from "../screens/SeatSelection";
-import BackButton from "../components/navigation/BackButton";
-import HeaderTitle from "../components/navigation/HeaderTitle";
+import BackButton from "../components/BackButton";
+import HeaderTitle from "../components/HeaderTitle";
 import FlightDetail from "../screens/FlightDetail";
 import Payment from "../screens/Payment";
 import BoardingPass from "../screens/BoardingPass";
-import supportedOS from "../constants/supportedOS";
 import FlightProvider from "../contexts/flightContext";
 import SeatProvider from "../contexts/seatContext";
 import THEME from "../constants/theme";
@@ -112,7 +111,7 @@ const styles = StyleSheet.create({
   tabBarStyle: {
     backgroundColor: THEME.buttonBackgroundColor,
     elevation: 0,
-    height: Platform.OS === supportedOS.android ? 65 : 80,
+    height: 80,
     borderWidth: 0,
   },
   header: {
