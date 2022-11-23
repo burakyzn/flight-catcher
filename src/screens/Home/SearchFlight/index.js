@@ -8,7 +8,7 @@ import { PrimaryButton } from "components//Button";
 import { useCallback, useRef, useState } from "react";
 import { SCREEN } from "constants/screen";
 import { useNavigation } from "@react-navigation/native";
-import { View, Row } from "./styled";
+import { Container, Row } from "./styled";
 
 export default function SearchFlight(props) {
   const { isDisabledReturnFlight } = props;
@@ -39,7 +39,7 @@ export default function SearchFlight(props) {
   };
 
   return (
-    <View>
+    <Container>
       <InputButton label="From" value="Istanbul" icon={<AirplaneTakeOff />} />
       <InputButton
         label="To"
@@ -72,6 +72,6 @@ export default function SearchFlight(props) {
         modalRef={bottomTravelerModalRef}
         onChangeTraveler={setTraveler}
       />
-    </View>
+    </Container>
   );
 }

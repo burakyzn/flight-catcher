@@ -1,6 +1,6 @@
 import Barcode from "svg/Barcode";
 import TextButton from "components/TextButton";
-import BoardingDetail from "components/boardingPass/BoardingDetail";
+import FlightCard from "components/FlightCard";
 import bookings from "mocks/bookings";
 import { useContext, useEffect } from "react";
 import { FlightContext } from "contexts/flightContext";
@@ -35,10 +35,25 @@ export default function BoardingPass() {
 
   return (
     <CustomFullScreenView>
-      <BoardingDetail flight={flight} seat={seat} />
-      <Row center>
-        <Barcode />
-      </Row>
+      <FlightCard height="450px">
+        <FlightCard.Destination
+          departureTime={flight.departureTime}
+          arrivalTime={flight.arrivalTime}
+          from={flight.from}
+          to={flight.to}
+        />
+        <FlightCard.Airport from={flight.fromAirport} to={flight.toAirport} />
+        <FlightCard.Summary
+          code={flight.code}
+          gate={flight.gate}
+          seat={flight.seat}
+          cabinClass={flight.cabinClass}
+        />
+        <FlightCard.Date date={flight.date} time={flight.flightTime} />
+        <Row center>
+          <Barcode />
+        </Row>
+      </FlightCard>
       <ButtonArea>
         <PrimaryButton text="Download" />
         <TextButton

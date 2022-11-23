@@ -4,7 +4,7 @@ import { SCREEN } from "constants/screen";
 import { useState, useContext, useRef } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AlertContext } from "contexts/alertContext";
-import { View, CreditCard, ButtonArea } from "./styled";
+import { Container, CreditCard, ButtonArea } from "./styled";
 
 export default function CreditCardEntry() {
   const NUMBER_REGEX = /^[0-9\s]+$/;
@@ -117,7 +117,7 @@ export default function CreditCardEntry() {
   };
 
   return (
-    <View>
+    <Container>
       <CreditCard>
         <TextInput
           label="Card Number"
@@ -162,6 +162,6 @@ export default function CreditCardEntry() {
         <PrimaryButton text="Confirm" onPress={handleConfirmButton} />
         <SecondaryButton text="Cancel" onPress={handleCancelButton} />
       </ButtonArea>
-    </View>
+    </Container>
   );
 }

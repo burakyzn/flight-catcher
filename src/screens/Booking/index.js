@@ -1,17 +1,28 @@
-import BoardingDetail from "components/boardingPass/BoardingDetail";
+import FlightCard from "components/FlightCard";
 import bookings from "mocks/bookings";
 import { PrimaryButton } from "components/Button";
 import { FlatList } from "react-native";
-import { Container, Wrapper, ButtonArea } from "./styled";
+import { Container } from "./styled";
 
 export default function Booking() {
   const renderItem = ({ item }) => (
-    <Wrapper>
-      <BoardingDetail flight={item} seat={item.seat} />
-      <ButtonArea>
-        <PrimaryButton text="Modify" />
-      </ButtonArea>
-    </Wrapper>
+    <FlightCard height="420px">
+      <FlightCard.Destination
+        departureTime={item.departureTime}
+        arrivalTime={item.arrivalTime}
+        from={item.from}
+        to={item.to}
+      />
+      <FlightCard.Airport from={item.fromAirport} to={item.toAirport} />
+      <FlightCard.Summary
+        code={item.code}
+        gate={item.gate}
+        seat={item.seat}
+        cabinClass={item.cabinClass}
+      />
+      <FlightCard.Date date={item.date} time={item.flightTime} />
+      <PrimaryButton text="Modify" />
+    </FlightCard>
   );
 
   return (

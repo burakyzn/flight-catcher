@@ -1,8 +1,8 @@
 import Carousel from "react-native-anchor-carousel";
 import OfferCard from "components/OfferCard";
-import styled from "styled-components/native";
 import hotOffers from "mocks/hotOffers";
 import { Dimensions } from "react-native";
+import { ClickableCard } from "./styled";
 
 const { width: windowWidth } = Dimensions.get("window");
 
@@ -30,9 +30,3 @@ export default function OfferCarousel() {
     />
   );
 }
-
-const ClickableCard = styled.TouchableOpacity`
-  flex-grow: 0;
-  height: 100%;
-  padding: 16px;
-`;

@@ -17,4 +17,11 @@ const Column = styled.View`
   width: 49%;
 `;
 
-export { Card, Row, Column };
+const Wrapper = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px 0 16px 0;
+`;
+
+export { Card, Row, Column, Wrapper };

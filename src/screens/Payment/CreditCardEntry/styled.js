@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 
-const View = styled.View`
+const Container = styled.View`
   flex: 1;
   width: 100%;
 `;
@@ -16,4 +16,4 @@ const ButtonArea = styled.View`
   padding: 0 32px 0 32px;
 `;
 
-export { View, CreditCard, ButtonArea };
+export { Container, CreditCard, ButtonArea };
